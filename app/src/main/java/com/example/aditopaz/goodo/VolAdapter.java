@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class VolAdapter extends RecyclerView.Adapter {
 
     Context activity;
+    //This is our data
     ArrayList<VolEntry> volList;
 
     public VolAdapter(Context mainActivity, ArrayList<VolEntry> o) {
