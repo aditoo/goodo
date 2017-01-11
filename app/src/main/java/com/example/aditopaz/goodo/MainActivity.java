@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,9 +29,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //edited on sunday 8.1 by aditopaz
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_main);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new VolAdapter(this));
     }
 
     @Override
