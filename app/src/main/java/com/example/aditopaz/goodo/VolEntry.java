@@ -15,6 +15,7 @@ public class VolEntry {
     String city;
     int duration;
 
+
     public VolEntry(int id, Bitmap image, String description, int volNum, int duration, String city) {
         this.id = id;
         this.image = image;
@@ -22,5 +23,16 @@ public class VolEntry {
         this.volNum = volNum;
         this.duration = duration;
         this.city = city;
+
     }
+
+    public VolEntry(int id, String description, int volNum, int duration, String city){
+        this.id = id;
+        this.description = description;
+        this.volNum = volNum;
+        this.duration = duration;
+        this.city = city;
+    }
+
+
 }
