@@ -2,6 +2,8 @@ package com.example.aditopaz.goodo;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
@@ -22,6 +24,8 @@ public class VolAdapter extends RecyclerView.Adapter {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        // edited on sunday 8.1 by aditopaz
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.vol_list_content,parent,false);
         return null;
     }
 
@@ -35,4 +39,6 @@ public class VolAdapter extends RecyclerView.Adapter {
         return 0;
     }
 }
+
+
 

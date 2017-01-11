@@ -23,4 +23,6 @@ public class VolEntry {
         this.duration = duration;
         this.city = city;
     }
+
+
 }

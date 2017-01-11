@@ -9,6 +9,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:layoutDirection="rtl"
+    android:textDirection="rtl"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.aditopaz.goodo.MainActivity"
     tools:showIn="@layout/activity_main">
@@ -19,10 +21,14 @@
         android:src="@mipmap/ic_launcher"
         android:layout_centerHorizontal="true"
         android:id="@+id/smile_image"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Hello World!"
-        android:id="@+id/smile_counter_text"/>
+        android:layoutDirection="rtl"
+        android:textDirection="rtl"
+        android:text="שלום עולם!"
+        android:id="@+id/smile_counter_text"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
