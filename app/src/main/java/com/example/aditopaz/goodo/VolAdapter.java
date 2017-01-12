@@ -1,7 +1,6 @@
 package com.example.aditopaz.goodo;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,9 +47,12 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
         holder.durationTextView.setText(String.format("%d",entry.duration));
         holder.cityTextView.setText(entry.city);
 
-        if (position % 2 == 0){
-            holder.setBackgroundColor("#FF4081");
-        }
+        // entry background changer
+        if (position % 2 == 0)
+            holder.itemView.setSelected(true);
+        else
+            holder.itemView.setSelected(false);
+
 
     }
 
@@ -92,15 +94,6 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
             cityTextView = (TextView) itemView.findViewById(R.id.loc_txt);
 
 
-        }
-
-        public void setBackgroundColor(String color){
-
-            this.durationTextView.setBackgroundColor(Color.parseColor(color));
-            this.cityTextView.setBackgroundColor(Color.parseColor(color));
-            this.descriptionTextView.setBackgroundColor(Color.parseColor(color));
-            this.numVolTextView.setBackgroundColor(Color.parseColor(color));
-            this.volImageView.setBackgroundColor(Color.parseColor(color));
         }
     }
 }
