@@ -32,7 +32,7 @@
             android:id="@+id/recycler_main"
             android:layoutDirection="rtl"
             android:textDirection="rtl"
-            android:background="@color/colorAccent" />
+             />
 
         <LinearLayout
             android:layout_width="match_parent"
