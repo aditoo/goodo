@@ -41,11 +41,11 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
         VolEntry entry = volList.get(position);
-
         holder.descriptionTextView.setText(entry.description);
         holder.numVolTextView.setText(String.format("%d",entry.volNum));
         holder.durationTextView.setText(String.format("%d",entry.duration));
         holder.cityTextView.setText(entry.city);
+
 
         // entry background changer
         if (position % 2 == 0)
