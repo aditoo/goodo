@@ -16,6 +16,7 @@ public class VolEntry {
     int duration;
 
 
+
     public VolEntry(int id, Bitmap image, String description, int volNum, int duration, String city) {
         this.id = id;
         this.image = image;
