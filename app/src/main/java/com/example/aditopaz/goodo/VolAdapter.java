@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -42,11 +43,9 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
 
         VolEntry entry = volList.get(position);
         holder.volImageView.setBackgroundResource(R.mipmap.kidsmiling);
-        holder.descriptionTextView.setText(entry.description);
-        holder.numVolTextView.setText(String.format("%d",entry.volNum));
-        holder.durationTextView.setText(String.format("%d",entry.duration));
         holder.cityTextView.setText(entry.city);
-
+        holder.nameTextView.setText(entry.name);
+        holder.categoryTextView.setText(entry.category);
 
         // entry background changer
         if (position % 2 == 0)
@@ -66,28 +65,29 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
 
         volList = new ArrayList<VolEntry>();
         volList.add(new VolEntry(0,"חוף הרצליה","איכות הסביבה", 4, "הרצליה"));
-
+        volList.add(new VolEntry(0,"דימה","הכנת אוכל", 2, "רעננה"));
+        volList.add(new VolEntry(0,"עדיטו","לעשות כושר", 6, "כפר סבא"));
     }
 
     public class MyViewHolder  extends RecyclerView.ViewHolder {
 
-        ImageView volImageView;
+        LinearLayout volImageView;
         TextView descriptionTextView;
         TextView numVolTextView;
         TextView durationTextView;
         TextView cityTextView;
+        TextView nameTextView;
+        TextView categoryTextView;
 
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            volImageView = (ImageView) itemView.findViewById(R.id.content_img);
-            descriptionTextView = (TextView) itemView.findViewById(R.id.content_txt);
-            numVolTextView = (TextView) itemView.findViewById(R.id.num_vol_txt);
+            volImageView = (LinearLayout) itemView.findViewById(R.id.content_img);
             durationTextView = (TextView) itemView.findViewById(R.id.dur_txt);
             cityTextView = (TextView) itemView.findViewById(R.id.loc_txt);
-
-
+            nameTextView = (TextView) itemView.findViewById(R.id.name_vol_txt);
+            categoryTextView = (TextView) itemView.findViewById(R.id.category_vol_txt);
         }
     }
 }

@@ -3,7 +3,6 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="179dp"
-    android:background="@drawable/beach_cover"
     android:id="@+id/content_img">
 
 
@@ -16,52 +15,44 @@
         android:textDirection="rtl"
         android:background="@color/greytransperent"
         android:id="@+id/lower_linear_layout"
-        android:weightSum="8">
+        android:weightSum="10">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="5"
             android:layoutDirection="rtl"
             android:textDirection="rtl"
-            android:text="עזרו לי לעזור ל... "
-            android:textColor="#fff"
+            android:text="עזרו לי לעזור ל: "
+            android:textColor="#ffffff"
             android:textStyle="bold"
-            android:id="@+id/content_txt"/>
-
-        <ImageView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/num_vol_img"/>
+            android:id="@+id/constant_help_txt"/>
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="8"
             android:textColor="#fff"
-            android:id="@+id/num_vol_txt"/>
+            android:id="@+id/name_vol_txt"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:id="@+id/category_vol_txt"/>
 
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="8"
             android:textColor="#fff"
             android:id="@+id/dur_txt"/>
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/location_logo"
-            android:id="@+id/loc_img"/>
-
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="8"
