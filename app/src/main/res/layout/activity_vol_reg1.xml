@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="7.5">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="הוסף תחום התמחות"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layoutDirection="rtl"
+            android:textDirection="rtl"
+            android:gravity="center"
+            android:background="@color/lightGreen"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:id="@+id/sub_categories"
+            android:layoutDirection="rtl"
+            android:textDirection="rtl"
+            android:layout_weight="2"
+            android:weightSum="10"
+            android:layout_marginTop="@dimen/reg_form_margin">
+
+            <ImageButton
+                android:id="@+id/sub_category1"
+                android:layout_width="65dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/megaphone"
+                android:layout_weight="2"
+                android:background="@android:color/transparent"/>
+
+            <ImageButton
+                android:id="@+id/sub_category2"
+                android:layout_width="65dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/megaphone"
+                android:layout_weight="2"
+                android:background="@android:color/transparent"/>
+
+            <ImageButton
+                android:id="@+id/sub_category3"
+                android:layout_width="65dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/megaphone"
+                android:layout_weight="2"
+                android:background="@android:color/transparent" />
+
+            <ImageButton
+                android:id="@+id/sub_category4"
+                android:layout_width="65dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/megaphone"
+                android:layout_weight="2"
+                android:background="@android:color/transparent" />
+
+            <ImageButton
+                android:id="@+id/sub_category5"
+                android:layout_width="65dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/megaphone"
+                android:layout_weight="2"
+                android:background="@android:color/transparent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:id="@+id/categories"
+            android:layoutDirection="rtl"
+            android:textDirection="rtl"
+            android:layout_weight="2"
+            android:weightSum="10"
+            android:layout_marginTop="@dimen/reg_form_margin">
+
+            <ImageButton
+                android:id="@+id/elderly"
+                android:layout_width="65dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/megaphone"
+                android:layout_weight="2"
+                android:background="@android:color/transparent"/>
+
+            <ImageButton
+                android:id="@+id/kids"
+                android:layout_width="65dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/megaphone"
+                android:layout_weight="2"
+                android:background="@android:color/transparent"/>
+
+            <ImageButton
+                android:id="@+id/animals"
+                android:layout_width="65dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/megaphone"
+                android:layout_weight="2"
+                android:background="@android:color/transparent" />
+
+            <ImageButton
+                android:id="@+id/environment"
+                android:layout_width="65dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/megaphone"
+                android:layout_weight="2"
+                android:background="@android:color/transparent" />
+
+            <ImageButton
+                android:id="@+id/general"
+                android:layout_width="65dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/megaphone"
+                android:layout_weight="2"
+                android:background="@android:color/transparent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:id="@+id/activities"
+            android:layoutDirection="rtl"
+            android:textDirection="rtl"
+            android:layout_weight="2"
+            android:weightSum="10"
+            android:layout_marginTop="@dimen/reg_form_margin">
+
+            <ImageButton
+                android:id="@+id/activity1"
+                android:layout_width="65dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/megaphone"
+                android:layout_weight="2"
+                android:background="@android:color/transparent"/>
+
+            <ImageButton
+                android:id="@+id/activity2"
+                android:layout_width="65dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/megaphone"
+                android:layout_weight="2"
+                android:background="@android:color/transparent"/>
+
+            <ImageButton
+                android:id="@+id/activity3"
+                android:layout_width="65dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/megaphone"
+                android:layout_weight="2"
+                android:background="@android:color/transparent" />
+
+            <ImageButton
+                android:id="@+id/activity4"
+                android:layout_width="65dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/megaphone"
+                android:layout_weight="2"
+                android:background="@android:color/transparent" />
+
+            <ImageButton
+                android:id="@+id/activity5"
+                android:layout_width="65dp"
+                android:layout_height="75dp"
+                android:src="@mipmap/megaphone"
+                android:layout_weight="2"
+                android:background="@android:color/transparent" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:text="המשך"
+            android:textStyle="bold"
+            android:layoutDirection="rtl"
+            android:textDirection="rtl"
+            android:gravity="center"
+            android:background="@color/darkGreen"
+            android:textColor="@android:color/white"
+            />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/megaphone"
+        android:background="@android:color/transparent"
+        android:layout_margin="@dimen/reg_form_margin"
+        android:layout_gravity="top|right"/>
+
+</android.support.design.widget.CoordinatorLayout>
