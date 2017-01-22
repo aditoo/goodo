@@ -41,6 +41,7 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
         VolEntry entry = volList.get(position);
+        holder.volImageView.setBackgroundResource(R.mipmap.kidsmiling);
         holder.descriptionTextView.setText(entry.description);
         holder.numVolTextView.setText(String.format("%d",entry.volNum));
         holder.durationTextView.setText(String.format("%d",entry.duration));
@@ -64,14 +65,7 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
     public void generateData(){
 
         volList = new ArrayList<VolEntry>();
-
-        volList.add(new VolEntry(0,"חוף הרצליה", 4, 3, "הרצליה"));
-        volList.add(new VolEntry(1,"איציק בן 68", 1, 2, "כפר סבא"));
-        volList.add(new VolEntry(2,"כלבים וחתולים נטושים", 3, 4, "רעננה"));
-        volList.add(new VolEntry(3,"נפגעי גל השריפות", 10, 5, "חיפה"));
-        volList.add(new VolEntry(4,"ילדים מכוערים", 2, 3, "חולון"));
-        volList.add(new VolEntry(5,"ילדים מכוערים", 2, 3, "חולון"));
-        volList.add(new VolEntry(6,"ילדים מכוערים", 2, 3, "חולון"));
+        volList.add(new VolEntry(0,"חוף הרצליה","איכות הסביבה", 4, "הרצליה"));
 
     }
 

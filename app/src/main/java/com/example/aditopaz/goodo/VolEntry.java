@@ -11,27 +11,35 @@ public class VolEntry {
     int id = 0; //complete later
     Bitmap image;
     String description;
+    String name;
+    String category;
+    int startTime;
     int volNum;
     String city;
     int duration;
 
 
 
-    public VolEntry(int id, Bitmap image, String description, int volNum, int duration, String city) {
+    public VolEntry(int id, Bitmap image, String description, String name, String category,
+                    int startTime, int volNum, int duration, String city) {
         this.id = id;
         this.image = image;
         this.description = description;
+        this.name = name;
+        this.category = category;
+        this.startTime = startTime;
         this.volNum = volNum;
         this.duration = duration;
         this.city = city;
 
     }
 
-    public VolEntry(int id, String description, int volNum, int duration, String city){
+    public VolEntry(int id, String name, String category,
+                    int startTime, String city){
         this.id = id;
-        this.description = description;
-        this.volNum = volNum;
-        this.duration = duration;
+        this.name = name;
+        this.category = category;
+        this.startTime = startTime;
         this.city = city;
     }
 
