@@ -34,13 +34,9 @@ public class VolEntry {
 
     }
 
-    public VolEntry(int id, String name, String category,
-                    int startTime, String city){
+    public VolEntry(int id, String name){
         this.id = id;
         this.name = name;
-        this.category = category;
-        this.startTime = startTime;
-        this.city = city;
     }
 
 
