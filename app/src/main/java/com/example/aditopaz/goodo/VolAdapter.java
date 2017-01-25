@@ -43,17 +43,13 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
 
         VolEntry entry = volList.get(position);
         holder.volImageView.setBackgroundResource(R.mipmap.kidsmiling);
-        holder.cityTextView.setText(entry.city);
         holder.nameTextView.setText(entry.name);
-        holder.categoryTextView.setText(entry.category);
 
         // entry background changer
         if (position % 2 == 0)
             holder.itemView.setSelected(true);
         else
             holder.itemView.setSelected(false);
-
-
     }
 
     @Override
@@ -64,34 +60,22 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
     public void generateData(){
 
         volList = new ArrayList<VolEntry>();
-        volList.add(new VolEntry(0,"חוף הרצליה","איכות הסביבה", 4, "הרצליה"));
-        volList.add(new VolEntry(0,"דימה","הכנת אוכל", 2, "רעננה"));
-        volList.add(new VolEntry(0,"עדיטו","לעשות כושר", 6, "כפר סבא"));
+        volList.add(new VolEntry(0, "ילידים סודנים"));
+        volList.add(new VolEntry(1, "חוף הרצליה"));
+        volList.add(new VolEntry(2, "חלוקת מזון"));
+        volList.add(new VolEntry(3, "גן ילדים"));
     }
 
     public class MyViewHolder  extends RecyclerView.ViewHolder {
 
         LinearLayout volImageView;
-        TextView descriptionTextView;
-        TextView numVolTextView;
-        TextView durationTextView;
-        TextView cityTextView;
         TextView nameTextView;
-        TextView categoryTextView;
-
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
             volImageView = (LinearLayout) itemView.findViewById(R.id.content_img);
-            durationTextView = (TextView) itemView.findViewById(R.id.dur_txt);
-            cityTextView = (TextView) itemView.findViewById(R.id.loc_txt);
             nameTextView = (TextView) itemView.findViewById(R.id.name_vol_txt);
-            categoryTextView = (TextView) itemView.findViewById(R.id.category_vol_txt);
         }
     }
 }
-
-
-
-
