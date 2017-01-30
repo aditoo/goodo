@@ -14,6 +14,7 @@ public class VolEntry {
     String name;
     String category;
     int startTime;
+    int volNeeded;
     int volNum;
     String city;
     int duration;
@@ -34,9 +35,11 @@ public class VolEntry {
 
     }
 
-    public VolEntry(int id, String name){
+    public VolEntry(int id, String name, int volNeeded, int volNum){
         this.id = id;
         this.name = name;
+        this.volNeeded = volNeeded;
+        this.volNum = volNum;
     }
 
 
