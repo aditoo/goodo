@@ -18,6 +18,7 @@ public class VolEntry {
     int volNum;
     String city;
     int duration;
+    String imageName;
 
 
 
@@ -35,11 +36,12 @@ public class VolEntry {
 
     }
 
-    public VolEntry(int id, String name, int volNeeded, int volNum){
+    public VolEntry(int id, String name, int volNeeded, int volNum, String imageName){
         this.id = id;
         this.name = name;
         this.volNeeded = volNeeded;
         this.volNum = volNum;
+        this.imageName = imageName;
     }
 
 

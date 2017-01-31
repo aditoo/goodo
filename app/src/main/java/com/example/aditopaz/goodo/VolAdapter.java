@@ -1,6 +1,11 @@
 package com.example.aditopaz.goodo;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Environment;
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -43,8 +49,9 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
     public void onBindViewHolder(final MyViewHolder holder, int position) {
 
         final VolEntry entry = volList.get(position);
-        holder.volImageView.setBackgroundResource(R.mipmap.kidsmiling);
         holder.nameTextView.setText(entry.name);
+        int imgId = activity.getResources().getIdentifier(entry.imageName, "mipmap",activity.getPackageName());
+        holder.volImageView.setBackgroundResource(imgId);
 
         final Handler handler = new Handler();
         new Thread(new Runnable() {
@@ -97,12 +104,11 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
     }
 
     public void generateData(){
-
         volList = new ArrayList<VolEntry>();
-        volList.add(new VolEntry(0, "ילידים סודנים",100, 50));
-        volList.add(new VolEntry(1, "חוף הרצליה", 100, 70));
-        volList.add(new VolEntry(2, "חלוקת מזון", 100,100));
-        volList.add(new VolEntry(3, "גן ילדים", 100, 20));
+        volList.add(new VolEntry(0, "גן ילדים של פליטים",100, 50, "smilingboy"));
+        volList.add(new VolEntry(1, "חוף הרצליה", 100, 70,"beach_cover"));
+        volList.add(new VolEntry(2, "חלוקת מזון", 100,100, "packing_cover"));
+        volList.add(new VolEntry(3, "איציק החקלאי", 100, 20, "forest_cover"));
     }
 
     public class MyViewHolder  extends RecyclerView.ViewHolder {
@@ -117,6 +123,7 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
             volImageView = (LinearLayout) itemView.findViewById(R.id.content_img);
             nameTextView = (TextView) itemView.findViewById(R.id.name_vol_txt);
             progressBar = (ProgressBar) itemView.findViewById(R.id.progress_bar);
+
         }
     }
 }
