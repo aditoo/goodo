@@ -16,8 +16,10 @@ public class VolEntry {
     int startTime;
     int volNeeded;
     int volNum;
+    int volMinNum;
     String city;
     int duration;
+    String timeleft; //remove this field and replace it with calculation of the time left;
     String imageName;
 
 
@@ -36,12 +38,14 @@ public class VolEntry {
 
     }
 
-    public VolEntry(int id, String name, int volNeeded, int volNum, String imageName){
+    public VolEntry(int id, String name, int volNeeded, int volNum, int volMinNum, String imageName, String timeleft){
         this.id = id;
         this.name = name;
         this.volNeeded = volNeeded;
         this.volNum = volNum;
         this.imageName = imageName;
+        this.volMinNum = volMinNum;
+        this.timeleft = timeleft;
     }
 
 

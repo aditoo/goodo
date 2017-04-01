@@ -12,18 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:weightSum="10"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <include
             layout="@layout/content_main"
             android:layout_height="0dp"
             android:layout_width="match_parent"
-            android:layout_weight="1.5"/>
+            android:layout_weight="1"/>
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="8.5"
+            android:layout_weight="9"
             android:id="@+id/recycler_main"
             android:layoutDirection="rtl"
             android:textDirection="rtl"
@@ -41,5 +42,11 @@
         android:layout_margin="@dimen/fab_margin"
         android:layout_gravity="top|end"/>
 
-
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/menu"
+        android:background="@android:color/transparent"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_gravity="top|left"/>
 </android.support.design.widget.CoordinatorLayout>
