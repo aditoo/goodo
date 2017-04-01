@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.aditopaz.goodo.MainActivity">
+    tools:context="com.example.aditopaz.goodo.MainActivity"
+    android:background="@color/background">
 
     <LinearLayout
         android:layout_width="match_parent"
