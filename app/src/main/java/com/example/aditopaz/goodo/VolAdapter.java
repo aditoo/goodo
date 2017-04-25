@@ -3,6 +3,7 @@ package com.example.aditopaz.goodo;
 import android.content.Context;
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +30,7 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
     //testing constructor
     public VolAdapter(Context mainActivity) {
         activity = mainActivity;
-        generateData();
+        //generateData();
     }
 
     @Override
@@ -45,7 +46,8 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
         final VolEntry entry = volList.get(position);
         holder.nameTextView.setText(entry.name);
         holder.timeLeft.setText(entry.timeleft);
-        holder.numOfVols.setText(Integer.toString(entry.volNum / 10)); //remove the /10. was only for the presentation
+        // remove /10
+        holder.numOfVols.setText(Integer.toString(entry.volNum / 10));
         int imgId = activity.getResources().getIdentifier(entry.imageName, "mipmap",activity.getPackageName());
         holder.volImageView.setBackgroundResource(imgId);
 
@@ -84,6 +86,13 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
             }
         }).start();
 
+        /*holder.itemView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                holder.volImageView.setBackgroundColor(Color.BLACK);
+            }
+        });
+        */
 
         /*
         // entry background changer
@@ -99,15 +108,9 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
         return volList.size();
     }
 
-    public void generateData(){
-        volList = new ArrayList<VolEntry>();
-        volList.add(new VolEntry(0, "גן ילדים של פליטים",100, 50, 20,"smilingboy","11"));
-        volList.add(new VolEntry(1, "חוף הרצליה", 100, 70, 50,"beach_cover","9"));
-        volList.add(new VolEntry(2, "חלוקת מזון", 100,100, 80,"packing_cover","14"));
-        volList.add(new VolEntry(3, "איציק החקלאי", 100, 20, 40,"forest_cover","17"));
-    }
 
-    public class MyViewHolder  extends RecyclerView.ViewHolder {
+
+    public class MyViewHolder  extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         LinearLayout volImageView;
         TextView nameTextView;
@@ -123,6 +126,19 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
             progressBar = (ProgressBar) itemView.findViewById(R.id.progress_bar);
             timeLeft = (TextView) itemView.findViewById(R.id.hours_left);
             numOfVols = (TextView) itemView.findViewById(R.id.current_num_of_vol);
+
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            Log.d("EntryButton", "clicked");
+            EntryClickListener entryClick = (EntryClickListener) activity;
+            entryClick.entryClicked(view, getAdapterPosition());
+        }
+    }
+
+    public interface EntryClickListener {
+        void entryClicked(View view, int position);
     }
 }
