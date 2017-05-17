@@ -126,7 +126,7 @@
         android:layout_height="50dp"
         android:layout_gravity="bottom"
         android:background="@color/darkGreen"
-        android:text="הצטרף!"
+        android:text="אני בא!"
         android:textColor="#fff"
         android:textSize="22dp"
         android:textStyle="bold"
