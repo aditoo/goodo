@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="7.5">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_weight="0.05"
+            android:background="@color/lightGreen"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:text="התנדבות חדשה"
+            android:textDirection="rtl"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/pages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/lightGreen"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            android:textDirection="rtl"
+            android:weightSum="6">
+
+            <ImageButton
+                android:id="@+id/page3"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/megaphone" />
+
+            <ImageButton
+                android:id="@+id/page1"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/megaphone" />
+
+            <ImageButton
+                android:id="@+id/page2"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.03"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/megaphone" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/choosePic"
+            android:layout_width="match_parent"
+            android:layout_height="197dp"
+            android:src="@mipmap/smilingboy" />
+
+        <LinearLayout
+            android:id="@+id/more"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/reg_form_margin"
+            android:layout_weight="0.11"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            android:textDirection="rtl"
+            android:weightSum="4">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:layoutDirection="rtl"
+                android:paddingRight="8dp"
+                android:text="תיאור ההתנדבות"
+                android:textDirection="rtl"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/moreAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/reg_form_margin"
+            android:layout_weight="7.45"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            android:textDirection="rtl"
+            android:weightSum="4">
+
+            <EditText
+                android:id="@+id/input_address"
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_weight="3.5"
+                android:inputType="textPassword" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000"
+            android:layout_gravity="bottom" >
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_weight="0.25"
+                android:background="@color/darkGreen"
+                android:gravity="center"
+                android:layoutDirection="rtl"
+                android:text="המשך"
+                android:textColor="@android:color/white"
+                android:textDirection="rtl"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
