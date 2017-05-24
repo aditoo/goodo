@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="7.5">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_weight="0.05"
+            android:background="@color/lightGreen"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:text=" מי בא לעזור לי"
+            android:textDirection="rtl"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/pages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/lightGreen"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            android:textDirection="rtl"
+            android:weightSum="6">
+
+            <ImageButton
+                android:id="@+id/page3"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/megaphone" />
+
+            <ImageButton
+                android:id="@+id/page1"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/megaphone" />
+
+            <ImageButton
+                android:id="@+id/page2"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.03"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/megaphone" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/add_friends"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:onClick="selfDestruct"
+            android:text="הזמן חברים להתנדבות" />
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
