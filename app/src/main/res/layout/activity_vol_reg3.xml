@@ -15,14 +15,14 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_weight="0.05"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@color/lightGreen"
             android:gravity="center"
             android:layoutDirection="rtl"
-            android:text=" מי בא לעזור לי"
+            android:text="מי בא לעזור לי"
             android:textDirection="rtl"
-            android:textSize="18dp"
+            android:textSize="24dp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -60,14 +60,49 @@
                 android:src="@mipmap/megaphone" />
         </LinearLayout>
 
-
-        <Button
-            android:id="@+id/add_friends"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/friends"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:onClick="selfDestruct"
-            android:text="הזמן חברים להתנדבות" />
+            android:layout_weight="5.30"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            android:textDirection="rtl">
+
+            <Button
+                android:id="@+id/add_friends"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:onClick="selfDestruct"
+                android:text="הזמן חברים להתנדבות" />
+            </LinearLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_gravity="bottom"
+            android:background="#fff"
+            android:layout_weight="1.51">
+
+            <Button
+                android:id="@+id/done"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/darkGreen"
+                android:gravity="center"
+                android:layoutDirection="rtl"
+                android:text="הוסף התנדבות"
+                android:textColor="@android:color/white"
+                android:textDirection="rtl"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+        </RelativeLayout>
 
     </LinearLayout>
 

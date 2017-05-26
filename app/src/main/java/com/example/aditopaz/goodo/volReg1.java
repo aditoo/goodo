@@ -7,12 +7,16 @@ import android.content.Intent;
 import android.icu.util.Calendar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
+
+import org.w3c.dom.Text;
 
 
 @SuppressWarnings("deprecation")
@@ -31,6 +35,11 @@ public class volReg1 extends AppCompatActivity {
     private int mMonth;
     private int mDay;
     static final int DATE_DIALOG_ID = 1;
+    TextView name;
+    TextView volNum;
+    TextView minVolNum;
+    TextView duration;
+    TextView address;
 
 
     @Override
@@ -42,17 +51,36 @@ public class volReg1 extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0)
             {   Intent i = new Intent(getApplicationContext(),volReg2.class);
+                Log.d("ClickListener", "I listen NOW");
+                Bundle bundle = new Bundle();
+                if(name.getText() != null)
+                    bundle.putString("VOL_NAME", name.getText().toString());
+                if(volNum != null)
+                    bundle.putString("VOL_NUM", volNum.getText().toString());
+                if(minVolNum != null)
+                    bundle.putString("MIN_VOL_NUM",minVolNum.getText().toString());
+                if(address != null)
+                    bundle.putString("ADDRESS",address.getText().toString());
+                if(mTimeDisplay != null)
+                    bundle.putString("TIME", mTimeDisplay.getText().toString());
+                if(mDateDisplay != null)
+                    bundle.putString("DATE", mDateDisplay.getText().toString());
+                if(duration != null)
+                    bundle.putString("DURATION",duration.getText().toString());
+                i.putExtras(bundle);
                 startActivity(i);
 
             }
         });
 
+        name = (TextView) findViewById(R.id.input_vol_name);
+        address = (TextView) findViewById(R.id.input_address);
         ImageButton vol_plus = (ImageButton) findViewById(R.id.vol_plus);
         vol_plus.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0)
             {
-                TextView txt = (TextView) findViewById(R.id.input_vol_num);
-                txt.setText(Integer.toString(Integer.parseInt(txt.getText().toString())+1));
+                TextView volNum = (TextView) findViewById(R.id.input_vol_num);
+                volNum.setText(Integer.toString(Integer.parseInt(volNum.getText().toString())+1));
 
             }
         });
@@ -61,10 +89,10 @@ public class volReg1 extends AppCompatActivity {
         vol_minus.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0)
             {
-                TextView txt = (TextView) findViewById(R.id.input_vol_num);
-                int num = Integer.parseInt(txt.getText().toString());
+                volNum = (TextView) findViewById(R.id.input_vol_num);
+                int num = Integer.parseInt(volNum.getText().toString());
                 num -= num == 0 ? 0 : 1;
-                txt.setText(Integer.toString(num));
+                volNum.setText(Integer.toString(num));
             }
         });
 
@@ -73,8 +101,8 @@ public class volReg1 extends AppCompatActivity {
         min_plus.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0)
             {
-                TextView txt = (TextView) findViewById(R.id.input_min_vol_num);
-                txt.setText(Integer.toString(Integer.parseInt(txt.getText().toString())+1));
+                minVolNum = (TextView) findViewById(R.id.input_min_vol_num);
+                minVolNum.setText(Integer.toString(Integer.parseInt(minVolNum.getText().toString())+1));
 
             }
         });
@@ -83,10 +111,10 @@ public class volReg1 extends AppCompatActivity {
         min_minus.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0)
             {
-                TextView txt = (TextView) findViewById(R.id.input_min_vol_num);
-                int num = Integer.parseInt(txt.getText().toString());
+                minVolNum = (TextView) findViewById(R.id.input_min_vol_num);
+                int num = Integer.parseInt(minVolNum.getText().toString());
                 num -= num == 0 ? 0 : 1;
-                txt.setText(Integer.toString(num));
+                minVolNum.setText(Integer.toString(num));
             }
         });
 
@@ -94,8 +122,8 @@ public class volReg1 extends AppCompatActivity {
         dur_plus.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0)
             {
-                TextView txt = (TextView) findViewById(R.id.input_duration_vol);
-                txt.setText(Integer.toString(Integer.parseInt(txt.getText().toString())+1));
+                duration = (TextView) findViewById(R.id.input_duration_vol);
+                duration.setText(Integer.toString(Integer.parseInt(duration.getText().toString())+1));
 
             }
         });
@@ -104,10 +132,10 @@ public class volReg1 extends AppCompatActivity {
         dur_minus.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0)
             {
-                TextView txt = (TextView) findViewById(R.id.input_duration_vol);
-                int num = Integer.parseInt(txt.getText().toString());
+                duration = (TextView) findViewById(R.id.input_duration_vol);
+                int num = Integer.parseInt(duration.getText().toString());
                 num -= num == 0 ? 0 : 1;
-                txt.setText(Integer.toString(num));
+                duration.setText(Integer.toString(num));
             }
         });
 
@@ -214,6 +242,7 @@ public class volReg1 extends AppCompatActivity {
                     updateDisplay(1);
                 }
             };
+
 
 
 }

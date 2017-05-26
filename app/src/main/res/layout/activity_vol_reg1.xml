@@ -12,30 +12,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="7.5">
+        android:weightSum="9.5">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_weight="1.13"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@color/lightGreen"
             android:gravity="center"
             android:layoutDirection="rtl"
             android:text="הוסף התנדבות חדשה"
             android:textDirection="rtl"
-            android:textSize="18dp"
+            android:textSize="24dp"
             android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/pages"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.06"
+            android:layout_height="57dp"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
             android:textDirection="rtl"
             android:background="@color/lightGreen"
-            android:weightSum="6">
+            android:weightSum="6"
+            android:layout_weight="0.74">
 
             <ImageButton
                 android:id="@+id/page3"
@@ -67,6 +67,7 @@
             android:id="@+id/vol_help"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_marginTop="@dimen/reg_form_margin"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
@@ -76,19 +77,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.2"
+                android:layout_weight="0.5"
                 android:layoutDirection="rtl"
                 android:paddingRight="8dp"
                 android:text="מי בא לעזור ל"
                 android:textDirection="rtl"
-                android:textSize="12dp" />
+                android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/input_vol_name"
                 android:layout_width="20dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3.5"
-                android:inputType="textPassword" />
+                android:layout_weight="3"/>
         </LinearLayout>
 
 
@@ -97,7 +97,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/reg_form_margin"
-            android:layout_weight="0.04"
+            android:layout_weight="1"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
             android:textDirection="rtl"
@@ -111,7 +111,7 @@
                 android:paddingRight="8dp"
                 android:text="מתנדבים דרושים"
                 android:textDirection="rtl"
-                android:textSize="12dp" />
+                android:textSize="20dp" />
 
             <ImageButton
                 android:id="@+id/vol_plus"
@@ -124,7 +124,7 @@
             <TextView
                 android:id="@+id/input_vol_num"
                 android:layout_width="3dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:text="0"
                 android:textSize="20dp"
@@ -143,7 +143,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/reg_form_margin"
-            android:layout_weight="0.11"
+            android:layout_weight="1"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
             android:textDirection="rtl"
@@ -157,7 +157,7 @@
                 android:paddingRight="8dp"
                 android:text="מינימום מתנדבים"
                 android:textDirection="rtl"
-                android:textSize="12dp" />
+                android:textSize="20dp" />
 
             <ImageButton
                 android:id="@+id/min_plus"
@@ -170,8 +170,8 @@
             <TextView
                 android:id="@+id/input_min_vol_num"
                 android:layout_width="3dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:layout_weight="1.99"
                 android:text="0"
                 android:textSize="20dp"
                 android:gravity="center_horizontal|center_vertical"/>
@@ -189,7 +189,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/reg_form_margin"
-            android:layout_weight="0.11"
+            android:layout_weight="1"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
             android:textDirection="rtl"
@@ -203,14 +203,13 @@
                 android:paddingRight="8dp"
                 android:text="כתובת"
                 android:textDirection="rtl"
-                android:textSize="12dp" />
+                android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/input_address"
                 android:layout_width="3dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3.5"
-                android:inputType="textPassword" />
+                android:layout_weight="3.5"/>
         </LinearLayout>
 
 
@@ -219,7 +218,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/reg_form_margin"
-            android:layout_weight="0.11"
+            android:layout_weight="1"
             android:orientation="horizontal"
             android:textDirection="rtl"
             android:gravity="center"
@@ -235,8 +234,10 @@
             <Button
              android:id="@+id/pick_time"
              android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-                android:text="@string/change_time"/>
+             android:layout_height="match_parent"
+                android:text="@string/change_time"
+                android:textSize="16dp"
+                android:layout_weight="0.73" />
 
             <TextView
                 android:id="@+id/date_display"
@@ -247,8 +248,10 @@
             <Button
                 android:id="@+id/pick_date"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/change_date"/>
+                android:layout_height="match_parent"
+                android:text="@string/change_date"
+                android:textSize="16dp"
+                android:layout_weight="0.73" />
 
 
 
@@ -263,7 +266,7 @@
             android:orientation="horizontal"
             android:textDirection="rtl"
             android:weightSum="4"
-            android:layout_weight="1.20">
+            android:layout_weight="1">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -273,7 +276,7 @@
                 android:paddingRight="8dp"
                 android:text="משך ההתנדבות"
                 android:textDirection="rtl"
-                android:textSize="12dp" />
+                android:textSize="20dp" />
 
             <ImageButton
                 android:id="@+id/dur_plus"
@@ -286,8 +289,8 @@
             <TextView
                 android:id="@+id/input_duration_vol"
                 android:layout_width="3dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:layout_weight="1.99"
                 android:text="0"
                 android:textSize="20dp"
                 android:gravity="center_horizontal|center_vertical"/>
@@ -307,28 +310,31 @@
                 android:paddingRight="8dp"
                 android:text="שעות"
                 android:textDirection="rtl"
-                android:textSize="12dp" />
+                android:textSize="20dp" />
         </LinearLayout>
 
         <RelativeLayout
             android:id="@+id/relativeLayout1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#000"
+            android:layout_height="20dp"
+            android:layout_weight="2"
+            android:background="#fff"
             android:layout_gravity="bottom" >
 
             <Button
                 android:id="@+id/next"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_weight="0.25"
+                android:layout_height="wrap_content"
                 android:background="@color/darkGreen"
                 android:gravity="center"
                 android:layoutDirection="rtl"
                 android:text="המשך"
                 android:textColor="@android:color/white"
                 android:textDirection="rtl"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="24dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true" />
         </RelativeLayout>
 
     </LinearLayout>

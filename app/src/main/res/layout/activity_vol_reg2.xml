@@ -15,14 +15,14 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_weight="0.05"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@color/lightGreen"
             android:gravity="center"
             android:layoutDirection="rtl"
             android:text="התנדבות חדשה"
             android:textDirection="rtl"
-            android:textSize="18dp"
+            android:textSize="24dp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -60,12 +60,23 @@
                 android:src="@mipmap/megaphone" />
         </LinearLayout>
 
-
-        <ImageView
-            android:id="@+id/choosePic"
+        <LinearLayout
+            android:id="@+id/img"
             android:layout_width="match_parent"
-            android:layout_height="197dp"
-            android:src="@mipmap/smilingboy" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/reg_form_margin"
+            android:layout_weight="0.08"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            android:textDirection="rtl"
+            android:weightSum="4">
+
+            <ImageView
+                android:id="@+id/choosePic"
+                android:layout_width="match_parent"
+                android:layout_height="174dp"
+                android:src="@mipmap/smilingboy" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/more"
@@ -94,17 +105,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/reg_form_margin"
-            android:layout_weight="7.45"
+            android:layout_weight="5.09"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
             android:textDirection="rtl"
             android:weightSum="4">
 
             <EditText
-                android:id="@+id/input_address"
+                android:id="@+id/input_description"
                 android:layout_width="10dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
+                android:layout_marginRight="22dp"
                 android:layout_weight="3.5"
                 android:inputType="textPassword" />
         </LinearLayout>
@@ -112,24 +123,28 @@
         <RelativeLayout
             android:id="@+id/relativeLayout1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#000"
-            android:layout_gravity="bottom" >
+            android:layout_height="20dp"
+            android:layout_gravity="bottom"
+            android:background="#fff"
+            android:layout_weight="1.51">
 
             <Button
                 android:id="@+id/next"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_weight="0.25"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
                 android:background="@color/darkGreen"
                 android:gravity="center"
                 android:layoutDirection="rtl"
                 android:text="המשך"
                 android:textColor="@android:color/white"
                 android:textDirection="rtl"
+                android:textSize="24dp"
                 android:textStyle="bold" />
         </RelativeLayout>
-
     </LinearLayout>
 
 
