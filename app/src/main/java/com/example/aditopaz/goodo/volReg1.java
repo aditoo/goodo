@@ -5,18 +5,15 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.icu.util.Calendar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
-
-import org.w3c.dom.Text;
 
 
 @SuppressWarnings("deprecation")
@@ -50,7 +47,8 @@ public class volReg1 extends AppCompatActivity {
         Button btn = (Button) findViewById(R.id.next);
         btn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0)
-            {   Intent i = new Intent(getApplicationContext(),volReg2.class);
+            {
+                Intent i = new Intent(getApplicationContext(),volReg2.class);
                 Log.d("ClickListener", "I listen NOW");
                 Bundle bundle = new Bundle();
                 if(name.getText() != null)

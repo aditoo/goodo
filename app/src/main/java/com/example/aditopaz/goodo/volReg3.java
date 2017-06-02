@@ -1,12 +1,12 @@
 package com.example.aditopaz.goodo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
-import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,13 +16,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
-
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 /**
  * Created by adi on 24/05/2017.
@@ -46,7 +42,30 @@ public class volReg3 extends AppCompatActivity{
                 Bundle infoBund = getIntent().getExtras();
                 Log.d("Bundle", infoBund.getString("VOL_NAME").toString());
 
-                getRequest();
+                StringBuilder url = new StringBuilder();
+                url.append("https://arcane-earth-90335.herokuapp.com/volunteers?title=");
+                url.append(infoBund.getString("VOL_NAME"));
+                url.append("&maxNumber=");
+                url.append(infoBund.getString("VOL_NUM"));
+                url.append("&minNumber=");
+                url.append(infoBund.getString("MIN_VOL_NUM"));
+                // initialize with 0 - will be updated if joining
+                url.append("&currentNum=");
+                url.append("0");
+                url.append("&address=");
+                url.append(infoBund.getString("ADDRESS"));
+                url.append("&date=");
+                url.append(infoBund.getString("DATE"));
+                url.append("&duration=");
+                url.append(infoBund.getString("DURATION"));
+                url.append("&description=");
+                url.append(infoBund.getString("DESCRIPTION"));
+                // currently deafult - need to change
+                url.append("&imgName=");
+                url.append("kidsmiling.jpg");
+
+                getRequest(url.toString());
+
                 i.putExtras(infoBund);
                 startActivity(i);
 
@@ -88,25 +107,24 @@ public class volReg3 extends AppCompatActivity{
         }
     }
 
-    protected RequestQueue getRequest() {
+    protected RequestQueue getRequest(String url) {
         // Instantiate the RequestQueue.
         final RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://arcane-earth-90335.herokuapp.com/volunteers";
 
         JsonObjectRequest jsObjRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                (Request.Method.POST, url, null,new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.d("Response", "in");
-                        Log.d("MainActivityFragment", "Response - " + response);
+                        Log.d("Post-Response", "posted!");
+                        Log.d("Post-Response", "Response - " + response);
+
                     }
                 }, new Response.ErrorListener() {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
-                        Log.d("error", "in");
-                        Log.d("MainActivityFragment", "Encountered error - " + error);
+                        Log.d("Post - Error", "Encountered error - " + error);
                     }
                 });
         queue.add(jsObjRequest);
