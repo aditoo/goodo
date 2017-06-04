@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements VolAdapter.EntryClickListener{
 
     RecyclerView recyclerView;
-    ArrayList<VolEntry> volList;
+    ArrayList<VolEntry> volList = new ArrayList<VolEntry>();
 
 
     @Override
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
             }
         });
 
-        generateData();
+        //generateData();
 
         setRevView();
 
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
 
 
     }
-
+    /*
     public void generateData(){
         volList = new ArrayList<VolEntry>();
         volList.add(new VolEntry(0, "גן ילדים של פליטים",100, 50, 20,"smilingboy","11", "26/04/17    12:30 - 08:30", "תל אביב","שלום רב, בכניסה לאשדוד ליד הצומת יש בית יתומים לעדה האתיופית. ראיתי כתבה בעיתון שהם מחפשים אנשים שיבואו חצי שעה ביום לשחק עם הילדים. מי רוצה?"));
@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
         volList.add(new VolEntry(2, "חלוקת מזון", 100,100, 80,"packing_cover","14", "29/04/17    17:30 - 14:00", "חדרה","היי חבר'ה, מי שמכיר אותי, אני גוזמן, החלטתי לארגן איסוף תרומות לנזקקים לקראת החג ליד הסופר של אהרל'ה. צריך מתנדבים גם לחלוקה של המזון."));
         volList.add(new VolEntry(3, "איציק החקלאי", 100, 20, 40,"forest_cover","17","29/04/17    08:30 - 06:00", "מושב גבעת חן","היוש, בעקבות החורף איציק החלקאי צריך עזרה בהצלת הגידולים, ליקוט הגידולים והעברתם לחממות על בטון. צריכה אנשים חזקים וטובי לב!"));
     }
+    */
 
     protected RequestQueue getRequest() {
         // Instantiate the RequestQueue.
@@ -130,7 +131,8 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // TODO Auto-generated method stub
+
+                        startActivity(new Intent(getApplicationContext(),ErrorPage.class));
                         Log.d("error", "in");
                         Log.d("MainActivityFragment", "Encountered error - " + error);
                     }
@@ -143,7 +145,6 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
 
         try {
             JSONArray jsonarray = response.getJSONArray("vol");
-            volList = new ArrayList<VolEntry>();
 
             for (int i = 0; i < jsonarray.length(); i++) {
                 JSONObject jsonobject = jsonarray.getJSONObject(i);
@@ -160,13 +161,16 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
                 volList.add(new VolEntry(i, title ,volNeeded, volNum, volminNum,imageName,timeleft, date, location, description));
 
 
+                /*
                 Log.d("Parser", "Parsed title - " + title);
                 Log.d("Parser", "Parsed volNeeded - " + volNeeded);
                 Log.d("Parser", "Parsed date - " + date);
                 Log.d("Parser", "Parsed imageName - " + imageName);
                 Log.d("Parser", "Parsed location - " + location);
+                */
 
             }
+            recyclerView.getAdapter().notifyDataSetChanged();
             setRevView();
         } catch (org.json.JSONException e) {
             throw new RuntimeException(e);
