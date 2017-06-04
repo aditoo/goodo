@@ -123,7 +123,6 @@ public class volReg3 extends AppCompatActivity{
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // TODO Auto-generated method stub
                         Log.d("Post - Error", "Encountered error - " + error);
                     }
                 });
