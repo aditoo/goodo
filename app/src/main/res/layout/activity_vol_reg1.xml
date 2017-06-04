@@ -67,8 +67,8 @@
             android:id="@+id/vol_help"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginTop="@dimen/reg_form_margin"
+            android:layout_weight="1"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
             android:textDirection="rtl"
@@ -88,7 +88,7 @@
                 android:id="@+id/input_vol_name"
                 android:layout_width="20dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"/>
+                android:layout_weight="3" />
         </LinearLayout>
 
 
@@ -176,6 +176,7 @@
                 android:textSize="30dp"
                 android:gravity="center_horizontal|center_vertical"/>
 
+
             <ImageButton
                 android:id="@+id/min_minus"
                 android:layout_width="wrap_content"
@@ -209,7 +210,7 @@
                 android:id="@+id/input_address"
                 android:layout_width="3dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3.5"/>
+                android:layout_weight="3.5" />
         </LinearLayout>
 
 
@@ -219,9 +220,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/reg_form_margin"
             android:layout_weight="1.84"
+            android:gravity="center"
             android:orientation="horizontal"
             android:textDirection="rtl"
-            android:gravity="center"
             android:weightSum="4">
 
 
@@ -229,30 +230,29 @@
                 android:id="@+id/time_display"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""/>
+                android:text="" />
 
             <Button
-             android:id="@+id/pick_time"
-             android:layout_width="wrap_content"
-             android:layout_height="match_parent"
+                android:id="@+id/pick_time"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.73"
                 android:text="@string/change_time"
-                android:textSize="16dp"
-                android:layout_weight="0.73" />
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/date_display"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""/>
+                android:text="" />
 
             <Button
                 android:id="@+id/pick_date"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_weight="0.73"
                 android:text="@string/change_date"
-                android:textSize="16dp"
-                android:layout_weight="0.73" />
-
+                android:textSize="16dp" />
 
 
         </LinearLayout>
@@ -294,7 +294,7 @@
                 android:text="0"
                 android:textSize="30dp"
                 android:gravity="center_horizontal|center_vertical"/>
-
+          
             <ImageButton
                 android:id="@+id/dur_minus"
                 android:layout_width="41dp"
@@ -317,24 +317,24 @@
             android:id="@+id/relativeLayout1"
             android:layout_width="match_parent"
             android:layout_height="20dp"
+            android:layout_gravity="bottom"
             android:layout_weight="2"
-            android:background="#fff"
-            android:layout_gravity="bottom" >
+            android:background="#fff">
 
             <Button
                 android:id="@+id/next"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/purple"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
                 android:gravity="center"
                 android:layoutDirection="rtl"
                 android:text="המשך"
                 android:textColor="@android:color/white"
                 android:textDirection="rtl"
-                android:textStyle="bold"
                 android:textSize="24dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentTop="true" />
+                android:textStyle="bold" />
         </RelativeLayout>
 
     </LinearLayout>
