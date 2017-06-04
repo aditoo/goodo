@@ -7,4 +7,6 @@
     <color name="darkGreen">#476039</color>
     <color name="greytransperent">#CC404142</color>color>
     <color name="background">#ffffff</color>
+    <color name="purple">#960696</color>
+    <color name="lightGrey">#ededed</color>
 </resources>

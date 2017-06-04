@@ -11,9 +11,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
 
 
 @SuppressWarnings("deprecation")
@@ -50,6 +53,24 @@ public class volReg1 extends AppCompatActivity {
             {
                 Intent i = new Intent(getApplicationContext(),volReg2.class);
                 Log.d("ClickListener", "I listen NOW");
+
+                EditText volName = (EditText) findViewById(R.id.input_vol_name);
+                String sVolName = volName.getText().toString();
+                EditText address = (EditText) findViewById(R.id.input_address);
+                String sAddress = address.getText().toString();
+                TextView eVolNum = (TextView) findViewById(R.id.input_vol_num);
+                String sVolNum = eVolNum.getText().toString();
+                TextView tMinVolNum = (TextView) findViewById(R.id.input_min_vol_num);
+                String sMinVolNum = tMinVolNum.getText().toString();
+                TextView tDuration= (TextView) findViewById(R.id.input_duration_vol);
+                String sDuration = tDuration.getText().toString();
+
+                //validation for null cells
+                if (sVolName.matches("") || sAddress.matches("") || sVolNum.equals("0") || sMinVolNum.equals("0") || sDuration.equals("0")) {
+                    Toast.makeText(volReg1.this, "אנא מלא שדות ריקים", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Bundle bundle = new Bundle();
                 if(name.getText() != null)
                     bundle.putString("VOL_NAME", name.getText().toString());
@@ -73,6 +94,7 @@ public class volReg1 extends AppCompatActivity {
 
         name = (TextView) findViewById(R.id.input_vol_name);
         address = (TextView) findViewById(R.id.input_address);
+
         ImageButton vol_plus = (ImageButton) findViewById(R.id.vol_plus);
         vol_plus.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0)

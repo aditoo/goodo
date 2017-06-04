@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/lightGreen"
+            android:background="@color/lightGrey"
             android:gravity="center"
             android:layoutDirection="rtl"
             android:text="הוסף התנדבות חדשה"
@@ -30,12 +30,12 @@
             android:id="@+id/pages"
             android:layout_width="match_parent"
             android:layout_height="57dp"
-            android:layout_weight="0.74"
-            android:background="@color/lightGreen"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
             android:textDirection="rtl"
-            android:weightSum="6">
+            android:background="@color/lightGrey"
+            android:weightSum="6"
+            android:layout_weight="0.74">
 
             <ImageButton
                 android:id="@+id/page3"
@@ -115,8 +115,8 @@
 
             <ImageButton
                 android:id="@+id/vol_plus"
-                android:layout_width="65dp"
-                android:layout_height="75dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@android:color/transparent"
                 android:src="@mipmap/megaphone" />
 
@@ -125,15 +125,15 @@
                 android:id="@+id/input_vol_num"
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:gravity="center_horizontal|center_vertical"
+                android:layout_weight="0.65"
                 android:text="0"
-                android:textSize="20dp" />
+                android:textSize="30dp"
+                android:gravity="center_horizontal|center_vertical"/>
 
             <ImageButton
                 android:id="@+id/vol_minus"
-                android:layout_width="65dp"
-                android:layout_height="75dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@android:color/transparent"
                 android:src="@mipmap/megaphone" />
         </LinearLayout>
@@ -161,8 +161,8 @@
 
             <ImageButton
                 android:id="@+id/min_plus"
-                android:layout_width="65dp"
-                android:layout_height="75dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@android:color/transparent"
                 android:src="@mipmap/megaphone" />
 
@@ -171,15 +171,16 @@
                 android:id="@+id/input_min_vol_num"
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1.99"
-                android:gravity="center_horizontal|center_vertical"
+                android:layout_weight="0.66"
                 android:text="0"
-                android:textSize="20dp" />
+                android:textSize="30dp"
+                android:gravity="center_horizontal|center_vertical"/>
+
 
             <ImageButton
                 android:id="@+id/min_minus"
-                android:layout_width="65dp"
-                android:layout_height="75dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@android:color/transparent"
                 android:src="@mipmap/megaphone" />
         </LinearLayout>
@@ -218,7 +219,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/reg_form_margin"
-            android:layout_weight="1"
+            android:layout_weight="1.84"
             android:gravity="center"
             android:orientation="horizontal"
             android:textDirection="rtl"
@@ -261,11 +262,11 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginTop="@dimen/reg_form_margin"
-            android:layout_weight="1"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
             android:textDirection="rtl"
-            android:weightSum="4">
+            android:weightSum="4"
+            android:layout_weight="0.41">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -279,7 +280,7 @@
 
             <ImageButton
                 android:id="@+id/dur_plus"
-                android:layout_width="65dp"
+                android:layout_width="41dp"
                 android:layout_height="75dp"
                 android:background="@android:color/transparent"
                 android:src="@mipmap/megaphone" />
@@ -289,14 +290,14 @@
                 android:id="@+id/input_duration_vol"
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1.99"
-                android:gravity="center_horizontal|center_vertical"
+                android:layout_weight="1.12"
                 android:text="0"
-                android:textSize="20dp" />
-
+                android:textSize="30dp"
+                android:gravity="center_horizontal|center_vertical"/>
+          
             <ImageButton
                 android:id="@+id/dur_minus"
-                android:layout_width="65dp"
+                android:layout_width="41dp"
                 android:layout_height="75dp"
                 android:background="@android:color/transparent"
                 android:src="@mipmap/megaphone" />
@@ -324,9 +325,9 @@
                 android:id="@+id/next"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/purple"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentTop="true"
-                android:background="@color/darkGreen"
                 android:gravity="center"
                 android:layoutDirection="rtl"
                 android:text="המשך"
