@@ -1,13 +1,25 @@
 package com.example.aditopaz.goodo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
 
 /**
  * Created by aditopaz on 24/04/2017.
@@ -24,14 +36,32 @@ public class VolInformation extends AppCompatActivity {
     private TextView location;
     private TextView description;
     private TextView stratTime;
+    private String id;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.vol_info);
+        Button join = (Button) findViewById(R.id.join_button);
 
         setViews();
+
+        StringBuilder url = new StringBuilder();
+        url.append("https://arcane-earth-90335.herokuapp.com/volunteers?id=");
+        url.append(id);
+        Log.d("Update-URL", url.toString());
+        updateVol(url.toString());
+
+        join.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View arg0)
+            {
+                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
+            }
+        });
+
+
     }
 
     private void setViews(){
@@ -40,6 +70,8 @@ public class VolInformation extends AppCompatActivity {
 
         if(infoBund != null){
 
+            id = infoBund.getString("ID");
+            Log.d("Update-CuurentVolNum", id);
             progressBar = (ProgressBar) findViewById(R.id.progress_bar);
             volImageView = (LinearLayout) findViewById(R.id.content_img);
             nameTextView = (TextView) findViewById(R.id.name_vol_txt);
@@ -103,5 +135,28 @@ public class VolInformation extends AppCompatActivity {
         else {
             Log.d("VolInformation","Info Bundle is empty");
         }
+    }
+
+    protected RequestQueue updateVol(String url) {
+        // Instantiate the RequestQueue.
+        final RequestQueue queue = Volley.newRequestQueue(this);
+
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.PUT, url, null,new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("Update-CuurentVolNum", "successed");
+                        Log.d("Update-CuurentVolNum", "ID - " + id);
+
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("Update-CuurentVolNum", "Encountered error - " + error);
+                    }
+                });
+        queue.add(jsObjRequest);
+        return queue;
     }
 }

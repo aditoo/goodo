@@ -7,7 +7,6 @@
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
     android:layoutDirection="rtl"
-
     android:weightSum="1">
 
     <android.support.design.widget.FloatingActionButton
@@ -121,8 +120,9 @@
             />
 
     </LinearLayout>
+
     <Button
-        android:id="@+id/button"
+        android:id="@+id/join_button"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="bottom"

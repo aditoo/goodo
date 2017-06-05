@@ -1,5 +1,6 @@
 package com.example.aditopaz.goodo;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -27,13 +28,19 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
 
     RecyclerView recyclerView;
     ArrayList<VolEntry> volList = new ArrayList<VolEntry>();
+    ProgressDialog  progressDialog;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("mainActivity", "created");
+
+        progressDialog = new ProgressDialog(this);
+
+
         getRequest();
+
         setContentView(R.layout.activity_main);
         ImageButton fab = (ImageButton) findViewById(R.id.megaphone);
 
@@ -95,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
         bundle.putString("STARTTIME", entry.getStartTime());
         bundle.putString("LOCATION", entry.getLoctaion());
         bundle.putString("DESCRIPTION", entry.getDescription());
+        bundle.putString("ID", entry.getID());
 
 
         Intent intent = new Intent(this, VolInformation.class);
@@ -124,6 +132,7 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
                     public void onResponse(JSONObject response) {
                         Log.d("Response", "in");
                         Log.d("MainActivityFragment", "Response - " + response);
+                        progressDialog.hide();
                         getResponseParser(response);
 
                     }
@@ -131,13 +140,15 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        progressDialog.hide();
                         startActivity(new Intent(getApplicationContext(),ErrorPage.class));
                         Log.d("error", "in");
                         Log.d("MainActivityFragment", "Encountered error - " + error);
                     }
                 });
         queue.add(jsObjRequest);
+        progressDialog.setMessage("בטעינה...");
+        progressDialog.show();
         return queue;
     }
 
@@ -157,8 +168,9 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
                 String date = jsonobject.getString("date");
                 String location = jsonobject.getString("address");
                 String description = jsonobject.getString("description");
+                String ID = jsonobject.getString("_id");
 
-                volList.add(new VolEntry(i, title ,volNeeded, volNum, volminNum,imageName,timeleft, date, location, description));
+                volList.add(new VolEntry(ID, title ,volNeeded, volNum, volminNum,imageName,timeleft, date, location, description));
 
 
                 /*

@@ -8,7 +8,7 @@ import android.graphics.Bitmap;
 
 public class VolEntry {
 
-    int id = 0; //complete later
+    String id;
     Bitmap image;
     String description;
     String name;
@@ -25,7 +25,7 @@ public class VolEntry {
 
 
 
-    public VolEntry(int id, Bitmap image, String description, String name, String category,
+    public VolEntry(String id, Bitmap image, String description, String name, String category,
                     int startTime, int volNum, int duration, String loctaion) {
         this.id = id;
         this.image = image;
@@ -39,7 +39,7 @@ public class VolEntry {
 
     }
 
-    public VolEntry(int id, String name, int volNeeded, int volNum, int volMinNum, String imageName, String timeleft){
+    public VolEntry(String id, String name, int volNeeded, int volNum, int volMinNum, String imageName, String timeleft){
         this.id = id;
         this.name = name;
         this.volNeeded = volNeeded;
@@ -49,7 +49,7 @@ public class VolEntry {
         this.timeleft = timeleft;
     }
 
-    public VolEntry(int id, String name, int volNeeded, int volNum, int volMinNum, String imageName,
+    public VolEntry(String id, String name, int volNeeded, int volNum, int volMinNum, String imageName,
                     String timeleft, String startTime, String loctaion, String description){
         this.id = id;
         this.name = name;
@@ -63,7 +63,9 @@ public class VolEntry {
         this.description = description;
     }
 
-
+    public  String getID(){
+        return this.id;
+    }
     public String getName(){
         return this.name;
     }
