@@ -40,6 +40,9 @@ public class volReg1 extends AppCompatActivity {
     TextView minVolNum;
     TextView duration;
     TextView address;
+    StringBuilder time;
+    StringBuilder date;
+    StringBuilder dateTime;
 
 
     @Override
@@ -70,6 +73,8 @@ public class volReg1 extends AppCompatActivity {
                     Toast.makeText(volReg1.this, "אנא מלא שדות ריקים", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(time != null && date != null)
+                    dateTime = new StringBuilder().append(date).append(time);
 
                 Bundle bundle = new Bundle();
                 if(name.getText() != null)
@@ -80,10 +85,8 @@ public class volReg1 extends AppCompatActivity {
                     bundle.putString("MIN_VOL_NUM",minVolNum.getText().toString());
                 if(address != null)
                     bundle.putString("ADDRESS",address.getText().toString());
-                if(mTimeDisplay != null)
-                    bundle.putString("TIME", mTimeDisplay.getText().toString());
-                if(mDateDisplay != null)
-                    bundle.putString("DATE", mDateDisplay.getText().toString());
+                if(dateTime != null)
+                    bundle.putString("DATE", dateTime.toString());
                 if(duration != null)
                     bundle.putString("DURATION",duration.getText().toString());
                 i.putExtras(bundle);
@@ -218,7 +221,7 @@ public class volReg1 extends AppCompatActivity {
         switch (id) {
             case TIME_DIALOG_ID:
                 mTimeDisplay.setText(
-                        new StringBuilder()
+                        time = new StringBuilder()
                                 .append(pad(mHour)).append(":")
                                 .append(pad(mMinute)));
                 break;
@@ -226,11 +229,11 @@ public class volReg1 extends AppCompatActivity {
 
             case DATE_DIALOG_ID:
                 mDateDisplay.setText(
-                        new StringBuilder()
+                        date = new StringBuilder()
                                 // Month is 0 based so add 1
+                                .append(mYear).append("-")
                                 .append(mMonth + 1).append("-")
-                                .append(mDay).append("-")
-                                .append(mYear).append(" "));
+                                .append(mDay).append("T"));
                 break;
         }
     }
