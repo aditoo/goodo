@@ -7,24 +7,13 @@
     android:background="@drawable/clouds2_background"
     tools:context="com.example.aditopaz.goodo.Splash_screen">
 
-        <ImageView
+
+
+        <pl.droidsonroids.gif.GifTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/goodo_logo"
-            android:id="@+id/splash_img"/>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:padding="36dp"
-            android:textSize="50sp"
-            android:textStyle="normal|bold"
-            android:textColor="#F2C078"
-            android:text="Doing Good"
-            android:id="@+id/splash_txt"
+            android:background="@drawable/goodosplash"
             />
+
 
 </RelativeLayout>

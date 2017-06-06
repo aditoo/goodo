@@ -1,12 +1,15 @@
 package com.example.aditopaz.goodo;
 
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+
 
 public class Splash_screen extends AppCompatActivity {
 
@@ -15,14 +18,13 @@ public class Splash_screen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         Typeface myTypeface = Typeface.createFromAsset(getAssets(),"archristy.ttf");
-        TextView myTextview = (TextView) findViewById(R.id.splash_txt);
-        myTextview.setTypeface(myTypeface);
+
 
         Thread myThread = new Thread(){
             @Override
             public void run() {
                 try {
-                    sleep(3000);
+                    sleep(2000);
                     startNextActivity();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
