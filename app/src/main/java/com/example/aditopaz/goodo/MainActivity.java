@@ -2,6 +2,7 @@ package com.example.aditopaz.goodo;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,7 +23,9 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements VolAdapter.EntryClickListener{
 
@@ -165,7 +168,6 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
                 int volNum = jsonobject.getInt("currentNum");
                 int volminNum = jsonobject.getInt("minNumber");
                 String imageName = jsonobject.getString("imgName");
-                String timeleft = "-1";
                 String date = jsonobject.getString("date");
                 String location = jsonobject.getString("address");
                 String description = jsonobject.getString("description");
@@ -175,7 +177,18 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
                 Log.d("DateTime:", dateTime[0]);
                 Log.d("DateTime:", dateTime[1]);
 
+                Long currentTime = System.currentTimeMillis()/1000;
+
+                SimpleDateFormat sdf = new SimpleDateFormat(("yyyy-M-d hh:mm"));
+                StringBuilder test = new StringBuilder();
+                test.append(dateTime[0]).append(" ").append(dateTime[1]);
+                Date startT = sdf.parse(test.toString());
+                long startTime = startT.getTime()/1000L;
+
+                String timeleft = Long.toString((startTime - currentTime) / 3600);
+
                 volList.add(new VolEntry(ID, title ,volNeeded, volNum, volminNum,imageName,timeleft, dateTime[0], dateTime[1], location, description));
+
 
 
                 /*
@@ -191,6 +204,8 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
             setRevView();
         } catch (org.json.JSONException e) {
             throw new RuntimeException(e);
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
     }
 }

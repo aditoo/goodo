@@ -99,7 +99,9 @@ public class VolInformation extends AppCompatActivity {
             location.setText(infoBund.getString("LOCATION"));
             description.setText(infoBund.getString("DESCRIPTION"));
             StringBuilder dt = new StringBuilder();
-            dt.append(infoBund.getString("DATE")).append(",  ");
+            String[] date = infoBund.getString("DATE").split("-");
+            StringBuilder newDate = new StringBuilder().append(date[2]).append("-").append(date[1]).append("-").append(date[0]);
+            dt.append(newDate.append(",  "));
             dt.append(infoBund.getString("TIME"));
             dateTime.setText(dt);
 

@@ -47,9 +47,10 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
         holder.nameTextView.setText(entry.name);
         holder.timeLeft.setText(entry.timeleft);
         // remove /10
-        holder.numOfVols.setText(Integer.toString(entry.volNum / 10));
+        holder.numOfVols.setText(Integer.toString(entry.volNum));
         int imgId = activity.getResources().getIdentifier(entry.imageName, "mipmap",activity.getPackageName());
         holder.volImageView.setBackgroundResource(imgId);
+
 
         final Handler handler = new Handler();
         new Thread(new Runnable() {

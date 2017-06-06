@@ -42,6 +42,7 @@ public class volReg1 extends AppCompatActivity {
     TextView address;
     StringBuilder time;
     StringBuilder date;
+    StringBuilder dateS;
     StringBuilder dateTime;
 
 
@@ -74,7 +75,7 @@ public class volReg1 extends AppCompatActivity {
                     return;
                 }
                 if(time != null && date != null)
-                    dateTime = new StringBuilder().append(date).append(time);
+                    dateTime = new StringBuilder().append(dateS).append(time);
 
                 Bundle bundle = new Bundle();
                 if(name.getText() != null)
@@ -232,9 +233,15 @@ public class volReg1 extends AppCompatActivity {
                 mDateDisplay.setText(
                         date = new StringBuilder()
                                 // Month is 0 based so add 1
-                                .append(mYear).append("-")
+                                .append(mDay).append("-")
                                 .append(mMonth + 1).append("-")
-                                .append(mDay).append("T"));
+                                .append(mYear));
+
+                dateS = new StringBuilder()
+                        // Month is 0 based so add 1
+                        .append(mYear).append("-")
+                        .append(mMonth + 1).append("-")
+                        .append(mDay).append("T");
                 break;
         }
     }
