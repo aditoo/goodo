@@ -47,17 +47,20 @@ public class VolInformation extends AppCompatActivity {
 
         setViews();
 
-        StringBuilder url = new StringBuilder();
-        url.append("https://arcane-earth-90335.herokuapp.com/volunteers?id=");
-        url.append(id);
-        Log.d("Update-URL", url.toString());
-        updateVol(url.toString());
+
+
 
         join.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0)
             {
                 Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                StringBuilder url = new StringBuilder();
+                url.append("https://arcane-earth-90335.herokuapp.com/volunteers?id=");
+                url.append(id);
+                Log.d("Update-URL", url.toString());
+                updateVol(url.toString());
                 startActivity(i);
+
             }
         });
 
@@ -91,7 +94,7 @@ public class VolInformation extends AppCompatActivity {
 
             final int volNum = infoBund.getInt("VOLNUM");
             // remove /10
-            numOfVols.setText(volNum);
+            numOfVols.setText(Integer.toString(volNum));
 
             location.setText(infoBund.getString("LOCATION"));
             description.setText(infoBund.getString("DESCRIPTION"));
