@@ -99,7 +99,7 @@ public class volReg1 extends AppCompatActivity {
         vol_plus.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0)
             {
-                TextView volNum = (TextView) findViewById(R.id.input_vol_num);
+                volNum = (TextView) findViewById(R.id.input_vol_num);
                 volNum.setText(Integer.toString(Integer.parseInt(volNum.getText().toString())+1));
 
             }
