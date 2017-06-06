@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="9.5">
+        android:weightSum="8.5">
 
         <TextView
             android:layout_width="match_parent"
@@ -29,37 +29,17 @@
         <LinearLayout
             android:id="@+id/pages"
             android:layout_width="match_parent"
-            android:layout_height="57dp"
+            android:layout_height="wrap_content"
+            android:background="@color/lightGrey"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
-            android:textDirection="rtl"
-            android:background="@color/lightGrey"
-            android:weightSum="6"
-            android:layout_weight="0.74">
+            android:textDirection="rtl">
 
-            <ImageButton
-                android:id="@+id/page3"
-                android:layout_width="65dp"
-                android:layout_height="75dp"
-                android:layout_weight="2"
-                android:background="@android:color/transparent"
-                android:src="@mipmap/megaphone" />
-
-            <ImageButton
-                android:id="@+id/page1"
-                android:layout_width="65dp"
-                android:layout_height="75dp"
-                android:layout_weight="2"
-                android:background="@android:color/transparent"
-                android:src="@mipmap/megaphone" />
-
-            <ImageButton
-                android:id="@+id/page2"
-                android:layout_width="65dp"
-                android:layout_height="75dp"
-                android:layout_weight="2"
-                android:background="@android:color/transparent"
-                android:src="@mipmap/megaphone" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|center_vertical"
+                android:src="@mipmap/handsone" />
         </LinearLayout>
 
 
@@ -118,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
-                android:src="@mipmap/megaphone" />
+                android:src="@mipmap/plus" />
 
 
             <TextView
@@ -126,16 +106,16 @@
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.65"
+                android:gravity="center_horizontal|center_vertical"
                 android:text="0"
-                android:textSize="30dp"
-                android:gravity="center_horizontal|center_vertical"/>
+                android:textSize="30dp" />
 
             <ImageButton
                 android:id="@+id/vol_minus"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
-                android:src="@mipmap/megaphone" />
+                android:src="@mipmap/minus" />
         </LinearLayout>
 
         <LinearLayout
@@ -164,7 +144,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
-                android:src="@mipmap/megaphone" />
+                android:src="@mipmap/plus" />
 
 
             <TextView
@@ -172,9 +152,9 @@
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.66"
+                android:gravity="center_horizontal|center_vertical"
                 android:text="0"
-                android:textSize="30dp"
-                android:gravity="center_horizontal|center_vertical"/>
+                android:textSize="30dp" />
 
 
             <ImageButton
@@ -182,7 +162,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
-                android:src="@mipmap/megaphone" />
+                android:src="@mipmap/minus" />
         </LinearLayout>
 
         <LinearLayout
@@ -235,7 +215,7 @@
             <Button
                 android:id="@+id/pick_time"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.73"
                 android:text="@string/change_time"
                 android:textSize="16dp" />
@@ -249,7 +229,7 @@
             <Button
                 android:id="@+id/pick_date"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.73"
                 android:text="@string/change_date"
                 android:textSize="16dp" />
@@ -262,11 +242,11 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginTop="@dimen/reg_form_margin"
+            android:layout_weight="0.41"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
             android:textDirection="rtl"
-            android:weightSum="4"
-            android:layout_weight="0.41">
+            android:weightSum="4">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -283,7 +263,7 @@
                 android:layout_width="41dp"
                 android:layout_height="75dp"
                 android:background="@android:color/transparent"
-                android:src="@mipmap/megaphone" />
+                android:src="@mipmap/plus" />
 
 
             <TextView
@@ -291,16 +271,16 @@
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.12"
+                android:gravity="center_horizontal|center_vertical"
                 android:text="0"
-                android:textSize="30dp"
-                android:gravity="center_horizontal|center_vertical"/>
-          
+                android:textSize="30dp" />
+
             <ImageButton
                 android:id="@+id/dur_minus"
                 android:layout_width="41dp"
                 android:layout_height="75dp"
                 android:background="@android:color/transparent"
-                android:src="@mipmap/megaphone" />
+                android:src="@mipmap/minus" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -318,23 +298,21 @@
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:layout_gravity="bottom"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:background="#fff">
-
             <Button
                 android:id="@+id/next"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:background="@color/purple"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentTop="true"
-                android:gravity="center"
-                android:layoutDirection="rtl"
                 android:text="המשך"
-                android:textColor="@android:color/white"
-                android:textDirection="rtl"
-                android:textSize="24dp"
+                android:textColor="#fff"
+                android:textSize="22dp"
                 android:textStyle="bold" />
+
         </RelativeLayout>
 
     </LinearLayout>

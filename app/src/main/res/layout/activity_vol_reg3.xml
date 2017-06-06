@@ -9,18 +9,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="576dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="7.5">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:background="@color/lightGrey"
             android:gravity="center"
             android:layoutDirection="rtl"
-            android:text="מי בא לעזור לי"
+            android:text="הוסף התנדבות חדשה"
             android:textDirection="rtl"
             android:textSize="24dp"
             android:textStyle="bold" />
@@ -32,55 +32,38 @@
             android:background="@color/lightGrey"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
-            android:textDirection="rtl"
-            android:weightSum="6">
+            android:textDirection="rtl">
 
-            <ImageButton
-                android:id="@+id/page3"
-                android:layout_width="65dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:background="@android:color/transparent"
-                android:src="@mipmap/megaphone" />
-
-            <ImageButton
-                android:id="@+id/page1"
-                android:layout_width="65dp"
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:background="@android:color/transparent"
-                android:src="@mipmap/megaphone" />
-
-            <ImageButton
-                android:id="@+id/page2"
-                android:layout_width="65dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2.03"
-                android:background="@android:color/transparent"
-                android:src="@mipmap/megaphone" />
+                android:gravity="center_horizontal|center_vertical"
+                android:src="@mipmap/handsthree" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/friends"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="6.3"
             android:gravity="center"
-            android:layout_weight="5.70"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
             android:textDirection="rtl">
-
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/contacts"/>
             <Button
                 android:id="@+id/add_friends"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="selfDestruct"
-                android:text="הזמן חברים להתנדבות" />
-
+                android:text="הזמן חברים להתנדבות"
+                />
 
 
         </LinearLayout>
-
 
 
         <RelativeLayout
@@ -88,24 +71,19 @@
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:layout_gravity="bottom"
-            android:layout_weight="0.64"
+            android:layout_weight="0.5"
             android:background="#fff">
-
             <Button
                 android:id="@+id/done"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="10dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:background="@color/purple"
-                android:gravity="center"
-                android:layoutDirection="rtl"
                 android:text="הוסף התנדבות"
-                android:textColor="@android:color/white"
-                android:textDirection="rtl"
-                android:textSize="24dp"
+                android:textColor="#fff"
+                android:textSize="22dp"
                 android:textStyle="bold" />
 
         </RelativeLayout>

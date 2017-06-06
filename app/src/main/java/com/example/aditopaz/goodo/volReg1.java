@@ -181,6 +181,7 @@ public class volReg1 extends AppCompatActivity {
         updateDisplay(0);
 
         mDateDisplay = (TextView) findViewById(R.id.date_display);
+
         mPickDate = (Button) findViewById(R.id.pick_date);
 
         // add a click listener to the button

@@ -35,7 +35,7 @@ public class VolInformation extends AppCompatActivity {
     private ProgressBar progressBar;
     private TextView location;
     private TextView description;
-    private TextView stratTime;
+    private TextView dateTime;
     private String id;
 
 
@@ -79,7 +79,7 @@ public class VolInformation extends AppCompatActivity {
             numOfVols = (TextView) findViewById(R.id.current_num_of_vol);
             location = (TextView) findViewById(R.id.location_txt);
             description = (TextView) findViewById(R.id.description_txt);
-            stratTime = (TextView) findViewById(R.id.duration_txt);
+            dateTime = (TextView) findViewById(R.id.date_time_txt);
 
             volNeeded = infoBund.getInt("VOLNEEDED");
 
@@ -91,11 +91,14 @@ public class VolInformation extends AppCompatActivity {
 
             final int volNum = infoBund.getInt("VOLNUM");
             // remove /10
-            numOfVols.setText(Integer.toString(volNum / 10));
+            numOfVols.setText(volNum);
 
             location.setText(infoBund.getString("LOCATION"));
             description.setText(infoBund.getString("DESCRIPTION"));
-            stratTime.setText(infoBund.getString("STARTTIME"));
+            StringBuilder dt = new StringBuilder();
+            dt.append(infoBund.getString("DATE")).append(",  ");
+            dt.append(infoBund.getString("TIME"));
+            dateTime.setText(dt);
 
             final Handler handler = new Handler();
             new Thread(new Runnable() {

@@ -20,7 +20,7 @@
             android:background="@color/lightGrey"
             android:gravity="center"
             android:layoutDirection="rtl"
-            android:text="התנדבות חדשה"
+            android:text="הוסף התנדבות חדשה"
             android:textDirection="rtl"
             android:textSize="24dp"
             android:textStyle="bold" />
@@ -32,32 +32,13 @@ s
             android:background="@color/lightGrey"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
-            android:textDirection="rtl"
-            android:weightSum="6">
+            android:textDirection="rtl">
 
-            <ImageButton
-                android:id="@+id/page3"
-                android:layout_width="65dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:background="@android:color/transparent"
-                android:src="@mipmap/megaphone" />
-
-            <ImageButton
-                android:id="@+id/page1"
-                android:layout_width="65dp"
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:background="@android:color/transparent"
-                android:src="@mipmap/megaphone" />
-
-            <ImageButton
-                android:id="@+id/page2"
-                android:layout_width="65dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2.03"
-                android:background="@android:color/transparent"
-                android:src="@mipmap/megaphone" />
+                android:gravity="center_horizontal|center_vertical"
+                android:src="@mipmap/handstwo" />
         </LinearLayout>
 
         <LinearLayout
@@ -124,25 +105,21 @@ s
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:layout_gravity="bottom"
-            android:background="#fff"
-            android:layout_weight="1.51">
-
+            android:layout_weight="1"
+            android:background="#fff">
             <Button
                 android:id="@+id/next"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="10dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:background="@color/purple"
-                android:gravity="center"
-                android:layoutDirection="rtl"
                 android:text="המשך"
-                android:textColor="@android:color/white"
-                android:textDirection="rtl"
-                android:textSize="24dp"
+                android:textColor="#fff"
+                android:textSize="22dp"
                 android:textStyle="bold" />
+
         </RelativeLayout>
     </LinearLayout>
 

@@ -99,7 +99,8 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
         bundle.putInt("VOLNUM", entry.getVolNum());
         bundle.putString("IMAGENAME", entry.getImageName());
         bundle.putInt("VOLNEEDED", entry.getVolNeeded());
-        bundle.putString("STARTTIME", entry.getStartTime());
+        bundle.putString("DATE", entry.getDate());
+        bundle.putString("TIME", entry.getTime());
         bundle.putString("LOCATION", entry.getLoctaion());
         bundle.putString("DESCRIPTION", entry.getDescription());
         bundle.putString("ID", entry.getID());
@@ -170,7 +171,11 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
                 String description = jsonobject.getString("description");
                 String ID = jsonobject.getString("_id");
 
-                volList.add(new VolEntry(ID, title ,volNeeded, volNum, volminNum,imageName,timeleft, date, location, description));
+                String[] dateTime = date.split("T");
+                Log.d("DateTime:", dateTime[0]);
+                Log.d("DateTime:", dateTime[1]);
+
+                volList.add(new VolEntry(ID, title ,volNeeded, volNum, volminNum,imageName,timeleft, dateTime[0], dateTime[1], location, description));
 
 
                 /*

@@ -13,7 +13,7 @@ public class VolEntry {
     String description;
     String name;
     String category;
-    String startTime;
+    String date;
     //int startTime;
     int volNeeded;
     int volNum;
@@ -22,6 +22,7 @@ public class VolEntry {
     int duration;
     String timeleft; //remove this field and replace it with calculation of the time left;
     String imageName;
+    String time;
 
 
 
@@ -50,7 +51,7 @@ public class VolEntry {
     }
 
     public VolEntry(String id, String name, int volNeeded, int volNum, int volMinNum, String imageName,
-                    String timeleft, String startTime, String loctaion, String description){
+                    String timeleft, String date, String time, String loctaion, String description){
         this.id = id;
         this.name = name;
         this.volNeeded = volNeeded;
@@ -58,7 +59,8 @@ public class VolEntry {
         this.imageName = imageName;
         this.volMinNum = volMinNum;
         this.timeleft = timeleft;
-        this.startTime = startTime;
+        this.date = date;
+        this.time = time;
         this.loctaion = loctaion;
         this.description = description;
     }
@@ -90,8 +92,12 @@ public class VolEntry {
         return description;
     }
 
-    public String getStartTime(){
-        return startTime;
+    public String getDate(){
+        return date;
+    }
+
+    public String getTime(){
+        return time;
     }
 
     public String getLoctaion(){
