@@ -1,16 +1,20 @@
 package com.example.aditopaz.goodo;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,6 +23,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -37,6 +42,8 @@ public class VolInformation extends AppCompatActivity {
     private TextView description;
     private TextView dateTime;
     private String id;
+    private String messageToSend;
+    private String number;
 
 
     @Override
@@ -44,7 +51,6 @@ public class VolInformation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.vol_info);
         Button join = (Button) findViewById(R.id.join_button);
-
         setViews();
 
 
@@ -55,8 +61,13 @@ public class VolInformation extends AppCompatActivity {
             {
                 Intent i = new Intent(getApplicationContext(),MainActivity.class);
                 StringBuilder url = new StringBuilder();
-                url.append("https://arcane-earth-90335.herokuapp.com/volunteers?id=");
+                SharedPreferences settings = getSharedPreferences("UserInfo", MODE_PRIVATE);
+                GoodoDoc.loadGoodoDocData(settings);
+
+                url.append("https://arcane-earth-90335.herokuapp.com/volunteers?vol=");
                 url.append(id);
+                url.append("&user=");
+                url.append(settings.getString("user_id", null));
                 Log.d("Update-URL", url.toString());
                 updateVol(url.toString());
                 startActivity(i);
@@ -84,6 +95,8 @@ public class VolInformation extends AppCompatActivity {
             description = (TextView) findViewById(R.id.description_txt);
             dateTime = (TextView) findViewById(R.id.date_time_txt);
 
+
+            number = infoBund.getString("CREATOR");
             volNeeded = infoBund.getInt("VOLNEEDED");
 
             int imgId = getResources().getIdentifier(infoBund.getString("IMAGENAME"), "mipmap",getPackageName());
@@ -155,6 +168,11 @@ public class VolInformation extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         Log.d("Update-CuurentVolNum", "successed");
                         Log.d("Update-CuurentVolNum", "ID - " + id);
+                        try {
+                            getResponseParser(response);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
                     }
                 }, new Response.ErrorListener() {
@@ -167,4 +185,22 @@ public class VolInformation extends AppCompatActivity {
         queue.add(jsObjRequest);
         return queue;
     }
+
+    protected void getResponseParser(JSONObject response) throws JSONException {
+
+        try {
+            int modified = response.getInt("nModified");
+            Log.d("isModified", Integer.toString(modified));
+            if(modified == 1){
+                SmsManager.getDefault().sendTextMessage(number, null, "הצטרפו לך להתנדבות שתדע", null,null);
+                Toast.makeText(VolInformation.this, "הצטרפת להתנדבות בהצלחה!", Toast.LENGTH_SHORT).show();
+            }
+            else
+                Toast.makeText(VolInformation.this, "הנך כבר רשום להתנדבות", Toast.LENGTH_SHORT).show();
+        }
+        catch (org.json.JSONException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

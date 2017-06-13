@@ -2,7 +2,9 @@ package com.example.aditopaz.goodo;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.icu.text.SimpleDateFormat;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -18,7 +20,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Date;
+
+import static android.R.attr.data;
 
 /**
  * Created by adi on 24/05/2017.
@@ -42,6 +50,9 @@ public class volReg3 extends AppCompatActivity{
                 Bundle infoBund = getIntent().getExtras();
                 Log.d("Bundle", infoBund.getString("VOL_NAME").toString());
 
+                SharedPreferences settings = getSharedPreferences("UserInfo", MODE_PRIVATE);
+                GoodoDoc.loadGoodoDocData(settings);
+
                 StringBuilder url = new StringBuilder();
                 url.append("https://arcane-earth-90335.herokuapp.com/volunteers?title=");
                 url.append(infoBund.getString("VOL_NAME"));
@@ -63,6 +74,8 @@ public class volReg3 extends AppCompatActivity{
                 // currently deafult - need to change
                 url.append("&imgName=");
                 url.append("kidsmiling");
+                url.append("&creator=");
+                url.append(settings.getString("phone_number", null));
 
                 getRequest(url.toString());
 

@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
         bundle.putString("LOCATION", entry.getLoctaion());
         bundle.putString("DESCRIPTION", entry.getDescription());
         bundle.putString("ID", entry.getID());
+        bundle.putString("CREATOR", entry.getCreator());
 
 
         Intent intent = new Intent(this, VolInformation.class);
@@ -172,6 +173,7 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
                 String location = jsonobject.getString("address");
                 String description = jsonobject.getString("description");
                 String ID = jsonobject.getString("_id");
+                String creator = jsonobject.getString("creator");
 
                 String[] dateTime = date.split("T");
                 Log.d("DateTime:", dateTime[0]);
@@ -187,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
 
                 String timeleft = Long.toString((startTime - currentTime) / 3600);
 
-                volList.add(new VolEntry(ID, title ,volNeeded, volNum, volminNum,imageName,timeleft, dateTime[0], dateTime[1], location, description));
+                volList.add(new VolEntry(ID, title ,volNeeded, volNum, volminNum,imageName,timeleft, dateTime[0], dateTime[1], location, description, creator));
 
 
 

@@ -23,6 +23,7 @@ public class VolEntry {
     String timeleft; //remove this field and replace it with calculation of the time left;
     String imageName;
     String time;
+    String creator;
 
 
 
@@ -51,7 +52,7 @@ public class VolEntry {
     }
 
     public VolEntry(String id, String name, int volNeeded, int volNum, int volMinNum, String imageName,
-                    String timeleft, String date, String time, String loctaion, String description){
+                    String timeleft, String date, String time, String loctaion, String description, String creator){
         this.id = id;
         this.name = name;
         this.volNeeded = volNeeded;
@@ -63,6 +64,7 @@ public class VolEntry {
         this.time = time;
         this.loctaion = loctaion;
         this.description = description;
+        this.creator = creator;
     }
 
     public  String getID(){
@@ -103,4 +105,6 @@ public class VolEntry {
     public String getLoctaion(){
         return loctaion;
     }
+
+    public String getCreator(){ return creator; }
 }
