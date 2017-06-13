@@ -23,7 +23,7 @@
             android:text="הוסף התנדבות חדשה"
             android:textDirection="rtl"
             android:textSize="24dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <LinearLayout
             android:id="@+id/pages"

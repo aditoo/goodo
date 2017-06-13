@@ -35,7 +35,7 @@
 
                 android:layout_height="wrap_content"
                 android:progressBackgroundTint="#B1B0B7"
-                android:progressTint="#63C67C" />
+                android:progressTint="@color/purple" />
 
             <TextView
                 android:id="@+id/current_num_of_vol"

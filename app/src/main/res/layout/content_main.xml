@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:weightSum="3"
     android:layoutDirection="rtl"
     android:textDirection="rtl"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -15,22 +14,12 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:src="@drawable/smiley"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/smilehead"
             android:id="@+id/smile_image"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layoutDirection="rtl"
-            android:textDirection="rtl"
-            android:text="253"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:id="@+id/smile_counter_text"
-            android:layout_gravity="center" />
+
 
 </LinearLayout>
