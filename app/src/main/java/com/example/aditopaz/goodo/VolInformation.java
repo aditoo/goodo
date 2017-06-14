@@ -42,7 +42,7 @@ public class VolInformation extends AppCompatActivity {
     private TextView description;
     private TextView dateTime;
     private String id;
-    private StringBuilder messageToSend;
+    private StringBuilder messageToSend = new StringBuilder();
     private String number;
     private String name;
 
@@ -194,7 +194,7 @@ public class VolInformation extends AppCompatActivity {
             SharedPreferences settings = getSharedPreferences("UserInfo", MODE_PRIVATE);
             GoodoDoc.loadGoodoDocData(settings);
             name = settings.getString("username", null);
-            messageToSend.append("היי, שמי ").append(name).append(" והצטרפתי להתנדבות- '").append(nameTextView).append("' שיצרת.");
+            messageToSend.append("היי, שמי ").append(name).append(" והצטרפתי להתנדבות- '").append(nameTextView.toString()).append("' שיצרת.");
             if(modified == 1){
                 SmsManager.getDefault().sendTextMessage(number, null, messageToSend.toString(), null,null);
                 Toast.makeText(VolInformation.this, "הצטרפת להתנדבות בהצלחה!", Toast.LENGTH_SHORT).show();
