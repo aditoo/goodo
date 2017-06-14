@@ -16,7 +16,7 @@
         android:src="@mipmap/megaphone"
         android:background="@android:color/transparent"
         android:layout_margin="5dp"
-        android:layout_gravity="top|end"/>
+        android:layout_gravity="top|right"/>
 
     <ImageButton
         android:layout_width="wrap_content"

@@ -192,7 +192,7 @@ public class VolInformation extends AppCompatActivity {
             int modified = response.getInt("nModified");
             Log.d("isModified", Integer.toString(modified));
             if(modified == 1){
-                SmsManager.getDefault().sendTextMessage(number, null, "הצטרפו לך להתנדבות שתדע", null,null);
+                SmsManager.getDefault().sendTextMessage(number, null, "היי הצטרפתי להתנדבות שלך שתדע", null,null);
                 Toast.makeText(VolInformation.this, "הצטרפת להתנדבות בהצלחה!", Toast.LENGTH_SHORT).show();
             }
             else
