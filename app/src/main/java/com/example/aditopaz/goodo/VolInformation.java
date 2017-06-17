@@ -196,7 +196,7 @@ public class VolInformation extends AppCompatActivity {
             name = settings.getString("username", null);
             messageToSend.append("היי, שמי ").append(name).append(" והצטרפתי להתנדבות- '").append(nameTextView.toString()).append("' שיצרת.");
             if(modified == 1){
-                SmsManager.getDefault().sendTextMessage(number, null, messageToSend.toString(), null,null);
+                SmsManager.getDefault().sendTextMessage(number, null, messageToSend.toString(), null, null);
                 Toast.makeText(VolInformation.this, "הצטרפת להתנדבות בהצלחה!", Toast.LENGTH_SHORT).show();
             }
             else
