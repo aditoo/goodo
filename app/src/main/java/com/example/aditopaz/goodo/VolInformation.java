@@ -2,7 +2,6 @@ package com.example.aditopaz.goodo;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -98,6 +97,7 @@ public class VolInformation extends AppCompatActivity {
 
 
             number = infoBund.getString("CREATOR");
+            Log.d("sms number", number);
             volNeeded = infoBund.getInt("VOLNEEDED");
 
             int imgId = getResources().getIdentifier(infoBund.getString("IMAGENAME"), "mipmap",getPackageName());
