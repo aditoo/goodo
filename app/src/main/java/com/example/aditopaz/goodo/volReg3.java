@@ -31,6 +31,7 @@ public class volReg3 extends AppCompatActivity{
 
     private static final int RESULT_PICK_CONTACT = 65535;
     private static final int PICK_CONTACT = 0;
+    String phoneNo = null ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +76,9 @@ public class volReg3 extends AppCompatActivity{
                 getRequest(url.toString());
 
                 i.putExtras(infoBund);
+                String messageToSend = "היי, זו היא הזמנה להצטרפות להתנדבות חדשה שהעלתי לאפליקציית Goodo";
+                Log.d("phoneNumber" , phoneNo);
+                SmsManager.getDefault().sendTextMessage(phoneNo, null, messageToSend.toString(), null, null);
                 startActivity(i);
 
 
@@ -113,7 +117,7 @@ public class volReg3 extends AppCompatActivity{
     private void contactPicked(Intent data) {
         Cursor cursor = null;
         try {
-            String phoneNo = null ;
+
             String name = null;
             // getData() method will have the Content Uri of the selected contact
             Uri uri = data.getData();
@@ -123,9 +127,7 @@ public class volReg3 extends AppCompatActivity{
             // column index of the phone number
             int  phoneIndex =cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
             phoneNo = cursor.getString(phoneIndex);
-            String messageToSend = "היי, זו היא הזמנה להצטרפות להתנדבות חדשה שהעלתי לאפליקציית Goodo";
-            Log.d("phoneNumber" , phoneNo);
-            SmsManager.getDefault().sendTextMessage(phoneNo, null, messageToSend.toString(), null, null);
+
 
         }
          catch (Exception e) {
