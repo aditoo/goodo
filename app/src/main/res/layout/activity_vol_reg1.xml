@@ -101,7 +101,7 @@
                 android:id="@+id/input_vol_num"
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1.1"
+                android:layout_weight="2.3"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="0"
                 android:textSize="30dp" />
@@ -147,7 +147,7 @@
                 android:id="@+id/input_min_vol_num"
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1.1"
+                android:layout_weight="2.3"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="0"
                 android:textSize="30dp" />
@@ -266,7 +266,7 @@
                 android:id="@+id/input_duration_vol"
                 android:layout_width="3dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1.1"
+                android:layout_weight="2.3"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="0"
                 android:textSize="30dp" />
