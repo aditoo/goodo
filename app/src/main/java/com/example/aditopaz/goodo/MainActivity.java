@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
     RecyclerView recyclerView;
     ArrayList<VolEntry> volList = new ArrayList<VolEntry>();
     ProgressDialog  progressDialog;
+    int mainClicksCounter = 0;
 
 
     @Override
@@ -59,6 +61,21 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
         //generateData();
 
         setRevView();
+
+        ImageButton menu = (ImageButton) findViewById(R.id.menu_button);
+        menu.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View arg0)
+            {
+                mainClicksCounter++;
+                if(mainClicksCounter < 3){
+                    Toast.makeText(MainActivity.this, "כפתור זה יהיה זמין בגרסה הבאה", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "חלאס", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
 
     }
 

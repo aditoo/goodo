@@ -1,10 +1,8 @@
 package com.example.aditopaz.goodo;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.icu.text.SimpleDateFormat;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -13,7 +11,6 @@ import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,13 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Date;
-
-import static android.R.attr.data;
 
 /**
  * Created by adi on 24/05/2017.
@@ -37,7 +28,7 @@ import static android.R.attr.data;
 public class volReg3 extends AppCompatActivity{
 
 
-    private static final int RESULT_PICK_CONTACT = 85500;
+    private static final int RESULT_PICK_CONTACT = 65535;
     private static final int PICK_CONTACT = 0;
 
     @Override
