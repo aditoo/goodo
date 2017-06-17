@@ -188,9 +188,9 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
                 long startTime = startT.getTime()/1000L;
 
                 String timeleft = Long.toString((startTime - currentTime) / 3600);
-
-                volList.add(new VolEntry(ID, title ,volNeeded, volNum, volminNum,imageName,timeleft, dateTime[0], dateTime[1], location, description, creator));
-
+                if(Integer.parseInt(timeleft) > 0) {
+                    volList.add(new VolEntry(ID, title, volNeeded, volNum, volminNum, imageName, timeleft, dateTime[0], dateTime[1], location, description, creator));
+                }
 
 
                 /*
