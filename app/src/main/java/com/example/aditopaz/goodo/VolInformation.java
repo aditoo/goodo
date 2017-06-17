@@ -194,7 +194,7 @@ public class VolInformation extends AppCompatActivity {
             SharedPreferences settings = getSharedPreferences("UserInfo", MODE_PRIVATE);
             GoodoDoc.loadGoodoDocData(settings);
             name = settings.getString("username", null);
-            messageToSend.append("היי, שמי ").append(name).append(" והצטרפתי להתנדבות- ").append("שיצרת.");
+            messageToSend.append("היי, שמי ").append(name).append(" והצטרפתי להתנדבות שיצרת.");
             if(modified == 1){
                 SmsManager.getDefault().sendTextMessage(number, null, messageToSend.toString(), null, null);
                 Toast.makeText(VolInformation.this, "הצטרפת להתנדבות בהצלחה!", Toast.LENGTH_SHORT).show();

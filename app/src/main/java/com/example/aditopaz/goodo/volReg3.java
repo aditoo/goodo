@@ -9,9 +9,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -35,6 +37,7 @@ import static android.R.attr.data;
 public class volReg3 extends AppCompatActivity{
 
 
+    private static final int RESULT_PICK_CONTACT = 85500;
     private static final int PICK_CONTACT = 0;
 
     @Override
@@ -91,8 +94,8 @@ public class volReg3 extends AppCompatActivity{
        btn.setOnClickListener(new View.OnClickListener(){
            public void onClick(View arg0)
            {
-               Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-               startActivityForResult(intent, PICK_CONTACT);
+               Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
+               startActivityForResult(intent, RESULT_PICK_CONTACT);
 
 
            }
@@ -103,20 +106,37 @@ public class volReg3 extends AppCompatActivity{
 
 
     @Override
-    public void onActivityResult(int reqCode, int resultCode, Intent data) {
-        super.onActivityResult(reqCode, resultCode, data);
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // check whether the result is ok
+        if (resultCode == RESULT_OK) {
+            // Check for the request code, we might be usign multiple startActivityForReslut
+            switch (requestCode) {
+                case RESULT_PICK_CONTACT:
+                    contactPicked(data);
+                    break;
+            }
+        }
 
-        switch (reqCode) {
-            case (PICK_CONTACT) :
-                if (resultCode == Activity.RESULT_OK) {
-                    Uri contactData = data.getData();
-                    Cursor c =  getContentResolver().query(contactData, null, null, null, null);
-                    if (c.moveToFirst()) {
-                        String name = c.getString(c.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-                        // TODO Whatever you want to do with the selected contact name.
-                    }
-                }
-                break;
+    }
+    private void contactPicked(Intent data) {
+        Cursor cursor = null;
+        try {
+            String phoneNo = null ;
+            String name = null;
+            // getData() method will have the Content Uri of the selected contact
+            Uri uri = data.getData();
+            //Query the content uri
+            cursor = getContentResolver().query(uri, null, null, null, null);
+            cursor.moveToFirst();
+            // column index of the phone number
+            int  phoneIndex =cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+            phoneNo = cursor.getString(phoneIndex);
+            String messageToSend = "היי, זו היא הזמנה להצטרפות להתנדבות חדשה שהעלתי לאפליקציית Goodo";
+            SmsManager.getDefault().sendTextMessage(phoneNo, null, messageToSend.toString(), null, null);
+
+        }
+         catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
