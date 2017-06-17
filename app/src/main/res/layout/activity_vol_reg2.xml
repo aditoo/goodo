@@ -13,23 +13,17 @@
         android:orientation="vertical"
         android:weightSum="7.5">
 
-        <TextView
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/lightGrey"
-            android:gravity="center"
-            android:layoutDirection="rtl"
-            android:text="הוסף התנדבות חדשה"
-            android:textDirection="rtl"
-            android:textSize="24dp"
-            android:textStyle="bold" />
+            android:gravity="center_horizontal|center_vertical"
+            android:src="@mipmap/headline"
+            android:layout_marginTop="10dp"/>
 s
         <LinearLayout
             android:id="@+id/pages"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/lightGrey"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
             android:textDirection="rtl">
