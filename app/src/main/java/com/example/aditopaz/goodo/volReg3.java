@@ -37,7 +37,7 @@ import static android.R.attr.data;
 public class volReg3 extends AppCompatActivity{
 
 
-    private static final int RESULT_PICK_CONTACT = 85500;
+    private static final int RESULT_PICK_CONTACT = 65534;
     private static final int PICK_CONTACT = 0;
 
     @Override
@@ -132,6 +132,7 @@ public class volReg3 extends AppCompatActivity{
             int  phoneIndex =cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
             phoneNo = cursor.getString(phoneIndex);
             String messageToSend = "היי, זו היא הזמנה להצטרפות להתנדבות חדשה שהעלתי לאפליקציית Goodo";
+            Log.d("phoneNumber" , phoneNo);
             SmsManager.getDefault().sendTextMessage(phoneNo, null, messageToSend.toString(), null, null);
 
         }
