@@ -25,6 +25,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 /**
  * Created by aditopaz on 24/04/2017.
  */
@@ -44,22 +46,30 @@ public class VolInformation extends AppCompatActivity {
     private StringBuilder messageToSend = new StringBuilder();
     private String number;
     private String name;
+    private boolean joined = false;
+    private ArrayList<String> users;
+    Button join;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.vol_info);
-        Button join = (Button) findViewById(R.id.join_button);
+
         setViews();
 
-
+        join = (Button) findViewById(R.id.join_button);
+        if(!joined){
+            join.setText("אני בא!");
+        }
+        else
+            join.setText("הסר אותי מהתנדבות");
 
 
         join.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0)
             {
-                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+
                 StringBuilder url = new StringBuilder();
                 SharedPreferences settings = getSharedPreferences("UserInfo", MODE_PRIVATE);
                 GoodoDoc.loadGoodoDocData(settings);
@@ -68,8 +78,19 @@ public class VolInformation extends AppCompatActivity {
                 url.append(id);
                 url.append("&user=");
                 url.append(settings.getString("user_id", null));
+
+                if(joined){
+                    removeVol(url.toString());
+                    users.remove(settings.getString("user_id", null));
+                }
+                else{
+                    updateVol(url.toString());
+                    users.add(settings.getString("user_id", null));
+                }
+
+                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+
                 Log.d("Update-URL", url.toString());
-                updateVol(url.toString());
                 startActivity(i);
 
             }
@@ -94,6 +115,21 @@ public class VolInformation extends AppCompatActivity {
             location = (TextView) findViewById(R.id.location_txt);
             description = (TextView) findViewById(R.id.description_txt);
             dateTime = (TextView) findViewById(R.id.date_time_txt);
+
+
+            users = infoBund.getStringArrayList("USERS");
+            SharedPreferences settings = getSharedPreferences("UserInfo", MODE_PRIVATE);
+            GoodoDoc.loadGoodoDocData(settings);
+            String userId = settings.getString("user_id", null);
+            for(String user : users){
+                Log.d("user: ", user);
+                Log.d("usereId: ", userId);
+                if(userId.equals(user)){
+                    joined = true;
+                    break;
+                }
+
+            }
 
 
             number = infoBund.getString("CREATOR");
@@ -199,12 +235,34 @@ public class VolInformation extends AppCompatActivity {
                 SmsManager.getDefault().sendTextMessage(number, null, messageToSend.toString(), null, null);
                 Toast.makeText(VolInformation.this, "הצטרפת להתנדבות בהצלחה!", Toast.LENGTH_SHORT).show();
             }
-            else
-                Toast.makeText(VolInformation.this, "הנך כבר רשום להתנדבות", Toast.LENGTH_SHORT).show();
         }
         catch (org.json.JSONException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    protected RequestQueue removeVol(String url) {
+        // Instantiate the RequestQueue.
+        final RequestQueue queue = Volley.newRequestQueue(this);
+
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.DELETE, url, null,new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("Update-CuurentVolNum", "successed");
+                        Log.d("Update-CuurentVolNum", "ID - " + id);
+                        Toast.makeText(VolInformation.this, "הוסרת מההתנדבות בהצלחה!", Toast.LENGTH_SHORT).show();
+
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("Update-CuurentVolNum", "Encountered error - " + error);
+                    }
+                });
+        queue.add(jsObjRequest);
+        return queue;
     }
 
 }

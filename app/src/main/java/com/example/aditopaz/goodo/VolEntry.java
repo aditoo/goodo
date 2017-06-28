@@ -2,6 +2,8 @@ package com.example.aditopaz.goodo;
 
 import android.graphics.Bitmap;
 
+import java.util.ArrayList;
+
 /**
  * Created by aditopaz on 28/12/2016.
  */
@@ -24,7 +26,7 @@ public class VolEntry {
     String imageName;
     String time;
     String creator;
-
+    ArrayList<String> users;
 
 
     public VolEntry(String id, Bitmap image, String description, String name, String category,
@@ -52,7 +54,7 @@ public class VolEntry {
     }
 
     public VolEntry(String id, String name, int volNeeded, int volNum, int volMinNum, String imageName,
-                    String timeleft, String date, String time, String loctaion, String description, String creator){
+                    String timeleft, String date, String time, String loctaion, String description, String creator, ArrayList<String> users){
         this.id = id;
         this.name = name;
         this.volNeeded = volNeeded;
@@ -65,6 +67,7 @@ public class VolEntry {
         this.loctaion = loctaion;
         this.description = description;
         this.creator = creator;
+        this.users = users;
     }
 
     public  String getID(){
@@ -107,4 +110,6 @@ public class VolEntry {
     }
 
     public String getCreator(){ return creator; }
+
+    public ArrayList<String> getUsers(){return users;}
 }

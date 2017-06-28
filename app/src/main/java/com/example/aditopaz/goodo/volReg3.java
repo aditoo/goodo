@@ -76,9 +76,11 @@ public class volReg3 extends AppCompatActivity{
                 getRequest(url.toString());
 
                 i.putExtras(infoBund);
-                String messageToSend = "היי, זו היא הזמנה להצטרפות להתנדבות חדשה שהעלתי לאפליקציית Goodo";
-                Log.d("phoneNumber" , phoneNo);
-                SmsManager.getDefault().sendTextMessage(phoneNo, null, messageToSend.toString(), null, null);
+                if(phoneNo != null) {
+                    String messageToSend = "היי, זו היא הזמנה להצטרפות להתנדבות חדשה שהעלתי לאפליקציית Goodo";
+                    Log.d("phoneNumber", phoneNo);
+                    SmsManager.getDefault().sendTextMessage(phoneNo, null, messageToSend.toString(), null, null);
+                }
                 startActivity(i);
 
 
