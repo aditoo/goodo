@@ -70,7 +70,7 @@ public class volReg1 extends AppCompatActivity {
                 String sDuration = tDuration.getText().toString();
 
                 //validation for null cells
-                if (sVolName.matches("") || sAddress.matches("") || sVolNum.equals("0") || sMinVolNum.equals("0") || sDuration.equals("0")) {
+                if (sVolName.matches("") || sAddress.matches("") || sDuration.equals("0")) {
                     Toast.makeText(volReg1.this, "אנא מלא שדות ריקים", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -115,7 +115,7 @@ public class volReg1 extends AppCompatActivity {
             {
                 volNum = (TextView) findViewById(R.id.input_vol_num);
                 int num = Integer.parseInt(volNum.getText().toString());
-                num -= num == 0 ? 0 : 1;
+                num -= num == 1 ? 0 : 1;
                 volNum.setText(Integer.toString(num));
             }
         });
@@ -137,7 +137,7 @@ public class volReg1 extends AppCompatActivity {
             {
                 minVolNum = (TextView) findViewById(R.id.input_min_vol_num);
                 int num = Integer.parseInt(minVolNum.getText().toString());
-                num -= num == 0 ? 0 : 1;
+                num -= num == 1 ? 0 : 1;
                 minVolNum.setText(Integer.toString(num));
             }
         });
