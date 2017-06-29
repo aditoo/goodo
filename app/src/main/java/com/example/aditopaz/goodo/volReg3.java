@@ -69,7 +69,7 @@ public class volReg3 extends AppCompatActivity{
                 url.append(infoBund.getString("DESCRIPTION"));
                 // currently deafult - need to change
                 url.append("&imgName=");
-                url.append("kidsmiling");
+                url.append(infoBund.getString("IMAGENAME"));
                 url.append("&creator=");
                 url.append(settings.getString("phone_number", null));
 

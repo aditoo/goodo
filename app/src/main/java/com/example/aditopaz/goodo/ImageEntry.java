@@ -5,9 +5,11 @@ package com.example.aditopaz.goodo;
  */
 
 public class ImageEntry {
-    String name;
+    private String name;
 
     public ImageEntry(String name){
         this.name = name;
     }
+
+    public String getName() { return this.name; }
 }

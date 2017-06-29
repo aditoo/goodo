@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -56,7 +55,7 @@ public class volReg1 extends AppCompatActivity {
             public void onClick(View arg0)
             {
                 Intent i = new Intent(getApplicationContext(),volReg2.class);
-                Log.d("ClickListener", "I listen NOW");
+
 
                 EditText volName = (EditText) findViewById(R.id.input_vol_name);
                 String sVolName = volName.getText().toString();
@@ -77,6 +76,9 @@ public class volReg1 extends AppCompatActivity {
                 if(time != null && date != null)
                     dateTime = new StringBuilder().append(dateS).append(time);
 
+                volNum = (TextView) findViewById(R.id.input_vol_num);
+                minVolNum = (TextView) findViewById(R.id.input_min_vol_num);
+
                 Bundle bundle = new Bundle();
                 if(name.getText() != null)
                     bundle.putString("VOL_NAME", name.getText().toString());
@@ -90,6 +92,8 @@ public class volReg1 extends AppCompatActivity {
                     bundle.putString("DATE", dateTime.toString());
                 if(duration != null)
                     bundle.putString("DURATION",duration.getText().toString());
+
+                bundle.putString("DESCRIPTION","");
                 i.putExtras(bundle);
                 startActivity(i);
 
@@ -103,7 +107,7 @@ public class volReg1 extends AppCompatActivity {
         vol_plus.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0)
             {
-                volNum = (TextView) findViewById(R.id.input_vol_num);
+
                 volNum.setText(Integer.toString(Integer.parseInt(volNum.getText().toString())+1));
 
             }
@@ -125,7 +129,7 @@ public class volReg1 extends AppCompatActivity {
         min_plus.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0)
             {
-                minVolNum = (TextView) findViewById(R.id.input_min_vol_num);
+
                 minVolNum.setText(Integer.toString(Integer.parseInt(minVolNum.getText().toString())+1));
 
             }

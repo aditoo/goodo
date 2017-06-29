@@ -2,11 +2,10 @@ package com.example.aditopaz.goodo;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
@@ -19,9 +18,9 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     ArrayList<ImageEntry> imageList;
 
 
-    public ImageAdapter(Context activity, ArrayList<ImageEntry> entries){
+    public ImageAdapter(Context activity, ArrayList<ImageEntry> imageList){
         this.activity = activity;
-        this.imageList = entries;
+        this.imageList = imageList;
     }
 
 
@@ -36,8 +35,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     @Override
     public void onBindViewHolder(final ImageViewHolder holder, int position) {
         final ImageEntry entry = imageList.get(position);
-        int imgId = activity.getResources().getIdentifier(entry.name, "mipmap", activity.getPackageName());
-        holder.imageView.setImageResource(imgId);
+        int imgId = activity.getResources().getIdentifier(entry.getName(), "mipmap", activity.getPackageName());
+        holder.imageView.setBackgroundResource(imgId);
     }
 
     @Override
@@ -45,47 +44,32 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         return imageList.size();
     }
 
-    public void generateData(){
-        imageList = new ArrayList<ImageEntry>();
 
-        imageList.add(new ImageEntry("beach_clean"));
-        imageList.add(new ImageEntry("beach_cover"));
-        imageList.add(new ImageEntry("elderly1"));
-        imageList.add(new ImageEntry("elderly2"));
-        imageList.add(new ImageEntry("elderly3"));
-        imageList.add(new ImageEntry("forest_cover"));
-        imageList.add(new ImageEntry("kids1"));
-        imageList.add(new ImageEntry("kids2"));
-        imageList.add(new ImageEntry("kids3"));
-        imageList.add(new ImageEntry("kids4"));
-        imageList.add(new ImageEntry("smilingboy"));
-        imageList.add(new ImageEntry("homeless1"));
-        imageList.add(new ImageEntry("homeless2"));
-        imageList.add(new ImageEntry("tractor"));
-        imageList.add(new ImageEntry("ruins1"));
-        imageList.add(new ImageEntry("ruins2"));
-
-
-    }
 
 
     public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        ImageView imageView;
+        LinearLayout imageView;
 
         public ImageViewHolder(View itemView) {
             super(itemView);
-            this.imageView = (ImageView) itemView.findViewById(R.id.image_pic);
+            this.imageView = (LinearLayout) itemView.findViewById(R.id.image_pic);
 
             itemView.setOnClickListener(this);
 
         }
 
         @Override
-        public void onClick(View v) {
-
+        public void onClick(View view) {
+            EntryClickListener entryClick = (EntryClickListener) activity;
+            entryClick.entryClicked(view, getAdapterPosition());
         }
     }
+
+    public interface EntryClickListener {
+        void entryClicked(View view, int position);
+    }
+
 }
 
 

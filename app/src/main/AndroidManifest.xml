@@ -30,6 +30,7 @@
         <activity android:name=".VolInformation"/>
         <activity android:name=".ErrorPage"/>
         <activity android:name=".SignUp"/>
+        <activity android:name=".Gallery"/>
     </application>
 
 </manifest>

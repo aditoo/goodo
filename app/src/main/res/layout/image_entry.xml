@@ -8,10 +8,11 @@
     android:layout_marginRight="20dp"
     >
 
-    <ImageView
+    <LinearLayout
         android:id="@+id/image_pic"
         android:layout_width="match_parent"
-        android:layout_height="179dp" />
+        android:layout_height="179dp"
+        android:orientation="vertical" />
 
 </LinearLayout>
 

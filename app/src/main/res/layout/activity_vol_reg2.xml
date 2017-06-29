@@ -46,11 +46,12 @@ s
             android:textDirection="rtl"
             android:weightSum="4">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/choosePic"
                 android:layout_width="match_parent"
                 android:layout_height="174dp"
-                android:src="@mipmap/smilingboy" />
+
+                android:src="@mipmap/addimage" />
         </LinearLayout>
 
         <LinearLayout
