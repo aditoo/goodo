@@ -29,6 +29,7 @@
             android:id="@+id/name_vol_txt"
             android:layout_margin="@dimen/reg_form_margin"/>
 
+
     </LinearLayout>
 
     <include
