@@ -108,7 +108,7 @@ public class VolInformation extends AppCompatActivity {
             id = infoBund.getString("ID");
             Log.d("Update-CuurentVolNum", id);
             progressBar = (ProgressBar) findViewById(R.id.progress_bar);
-            progressBar.setRotation(180);
+            //progressBar.setRotation(180);
             volImageView = (LinearLayout) findViewById(R.id.content_img);
             nameTextView = (TextView) findViewById(R.id.name_vol_txt);
             timeLeft = (TextView) findViewById(R.id.hours_left);

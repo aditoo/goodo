@@ -50,6 +50,7 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
         holder.numOfVols.setText(Integer.toString(entry.volNum));
         int imgId = activity.getResources().getIdentifier(entry.imageName, "mipmap",activity.getPackageName());
         holder.volImageView.setBackgroundResource(imgId);
+        holder.maxNumOfVols.setText(Integer.toString(entry.volNeeded));
 
 
         final Handler handler = new Handler();
@@ -118,6 +119,7 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
         ProgressBar progressBar;
         TextView timeLeft;
         TextView numOfVols;
+        TextView maxNumOfVols;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -127,8 +129,10 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
             progressBar = (ProgressBar) itemView.findViewById(R.id.progress_bar);
             timeLeft = (TextView) itemView.findViewById(R.id.hours_left);
             numOfVols = (TextView) itemView.findViewById(R.id.current_num_of_vol);
+            maxNumOfVols = (TextView) itemView.findViewById(R.id.max_num_of_vol);
 
-            progressBar.setRotation(180);
+
+            //progressBar.setRotation(180);
             itemView.setOnClickListener(this);
         }
 

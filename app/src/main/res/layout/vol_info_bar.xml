@@ -6,14 +6,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right|bottom"
         android:background="@color/background"
-        android:layoutDirection="rtl"
+        android:layoutDirection="ltr"
         android:orientation="horizontal"
-        android:textDirection="rtl"
-        android:weightSum="10"
-
-        >
+        android:weightSum="9">
 
         <ImageView
             android:id="@+id/people_icon"
@@ -25,14 +21,13 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="6"
+            android:layout_weight="8"
             android:gravity="center_vertical">
 
             <ProgressBar
                 android:id="@+id/progress_bar"
                 style="@android:style/Widget.ProgressBar.Horizontal"
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
                 android:progressBackgroundTint="#B1B0B7"
                 android:progressTint="@color/purple" />
@@ -43,35 +38,31 @@
                 android:layout_height="match_parent"
                 android:layout_alignBottom="@id/progress_bar"
                 android:layout_alignLeft="@id/progress_bar"
-                android:layout_alignRight="@id/progress_bar"
                 android:layout_alignTop="@id/progress_bar"
+                android:layout_alignRight="@id/progress_bar"
                 android:background="@android:color/transparent"
-                android:text="12"
-                android:textSize="16dp"
+                android:textColor="#fff"
+                android:textSize="18dp"
+                android:gravity="end"
+                android:paddingLeft="5dp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/max_num_of_vol"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@id/progress_bar"
+                android:layout_alignLeft="@id/progress_bar"
+                android:layout_alignTop="@id/progress_bar"
+                android:layout_alignRight="@+id/progress_bar"
+                android:background="@android:color/transparent"
+                android:textColor="#fff"
+                android:textSize="18dp"
+                android:gravity="start"
+                android:layout_marginRight="5dp"
+                android:textStyle="bold" />
+
         </RelativeLayout>
-
-        <TextView
-            android:id="@+id/hours_left"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/reg_form_margin"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="18dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:gravity="center_vertical"
-            android:text="שעות נותרו"
-            android:textColor="@android:color/black"
-            android:textSize="16dp"
-            android:textStyle="bold" />
 
 
     </LinearLayout>

@@ -12,23 +12,55 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="179dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layoutDirection="rtl"
         android:textDirection="rtl"
         android:id="@+id/content_img">
 
 
-        <TextView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textSize="18dp"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:layout_gravity="right"
+                android:background="@color/greytransperent"
+                android:id="@+id/name_vol_txt"
+                android:layout_margin="@dimen/reg_form_margin"/>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:textSize="18dp"
-            android:textColor="#fff"
-            android:textStyle="bold"
-            android:background="@color/greytransperent"
-            android:id="@+id/name_vol_txt"
-            android:layout_margin="@dimen/reg_form_margin"/>
+            android:orientation="horizontal"
+            android:layout_gravity="bottom"
+            >
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textSize="18dp"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:layout_marginTop="100dp"
+                android:background="@color/greytransperent"
+                android:id="@+id/hours_left"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textSize="18dp"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:text="שעות נותרו"
+                android:layout_marginTop="100dp"
+                android:background="@color/greytransperent"
+                android:id="@+id/nameff_vol_txt"/>
+
+
+        </LinearLayout>
 
     </LinearLayout>
 
