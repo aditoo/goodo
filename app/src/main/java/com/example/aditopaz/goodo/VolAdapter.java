@@ -128,6 +128,7 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
             timeLeft = (TextView) itemView.findViewById(R.id.hours_left);
             numOfVols = (TextView) itemView.findViewById(R.id.current_num_of_vol);
 
+            progressBar.setRotation(180);
             itemView.setOnClickListener(this);
         }
 
