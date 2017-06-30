@@ -54,7 +54,7 @@ public class VolEntry {
     }
 
     public VolEntry(String id, String name, int volNeeded, int volNum, int volMinNum, String imageName,
-                    String timeleft, String date, String time, String loctaion, String description, String creator, ArrayList<String> users){
+                    String timeleft, String date, String time, String loctaion,int duration, String description, String creator, ArrayList<String> users){
         this.id = id;
         this.name = name;
         this.volNeeded = volNeeded;
@@ -65,6 +65,7 @@ public class VolEntry {
         this.date = date;
         this.time = time;
         this.loctaion = loctaion;
+        this.duration = duration;
         this.description = description;
         this.creator = creator;
         this.users = users;
@@ -112,4 +113,6 @@ public class VolEntry {
     public String getCreator(){ return creator; }
 
     public ArrayList<String> getUsers(){return users;}
+
+    public int getDuration(){return this.duration;}
 }

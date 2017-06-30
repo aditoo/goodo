@@ -132,7 +132,7 @@ public class VolAdapter extends RecyclerView.Adapter<VolAdapter.MyViewHolder> {
             maxNumOfVols = (TextView) itemView.findViewById(R.id.max_num_of_vol);
 
 
-            //progressBar.setRotation(180);
+            progressBar.setRotation(180);
             itemView.setOnClickListener(this);
         }
 

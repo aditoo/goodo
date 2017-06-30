@@ -7,16 +7,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/background"
-        android:layoutDirection="ltr"
+        android:layoutDirection="rtl"
         android:orientation="horizontal"
         android:weightSum="9">
 
-        <ImageView
-            android:id="@+id/people_icon"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@mipmap/people" />
+
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -64,6 +59,12 @@
 
         </RelativeLayout>
 
+        <ImageView
+            android:id="@+id/people_icon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/people" />
 
     </LinearLayout>
 </LinearLayout>

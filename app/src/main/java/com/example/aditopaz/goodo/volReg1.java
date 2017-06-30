@@ -50,14 +50,16 @@ public class volReg1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vol_reg1);
 
+
         volNum = (TextView) findViewById(R.id.input_vol_num);
         minVolNum = (TextView) findViewById(R.id.input_min_vol_num);
+
+
         Button btn = (Button) findViewById(R.id.next);
         btn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0)
             {
                 Intent i = new Intent(getApplicationContext(),volReg2.class);
-
 
                 EditText volName = (EditText) findViewById(R.id.input_vol_name);
                 String sVolName = volName.getText().toString();

@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
         bundle.putString("ID", entry.getID());
         bundle.putString("CREATOR", entry.getCreator());
         bundle.putStringArrayList("USERS", entry.getUsers());
+        bundle.putInt("DURATION", entry.getDuration());
 
 
         Intent intent = new Intent(this, VolInformation.class);
@@ -193,6 +194,7 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
                 String description = jsonobject.getString("description");
                 String ID = jsonobject.getString("_id");
                 String creator = jsonobject.getString("creator");
+                int duration = jsonobject.getInt("duration");
                 JSONArray usersArray = jsonobject.getJSONArray("vols");
                 ArrayList<String> users = new ArrayList<String>();
                 if (usersArray != null) {
@@ -202,8 +204,6 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
 
 
                     String[] dateTime = date.split("T");
-                Log.d("DateTime:", dateTime[0]);
-                Log.d("DateTime:", dateTime[1]);
 
                 Long currentTime = System.currentTimeMillis()/1000;
 
@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity implements VolAdapter.EntryC
 
                 String timeleft = Long.toString((startTime - currentTime) / 3600);
                 if(Integer.parseInt(timeleft) > 0) {
-                    volList.add(new VolEntry(ID, title, volNeeded, volNum, volminNum, imageName, timeleft, dateTime[0], dateTime[1], location, description, creator, users));
+                    volList.add(new VolEntry(ID, title, volNeeded, volNum, volminNum, imageName, timeleft, dateTime[0], dateTime[1], location, duration, description, creator, users));
                 }
 
 
